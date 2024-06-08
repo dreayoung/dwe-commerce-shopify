@@ -11,21 +11,16 @@ export default async function Footer() {
   const currentYear = new Date().getFullYear();
   const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '');
   const skeleton = 'w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700';
-  const menu = await getMenu('next-js-frontend-footer-menu');
+  const menu = await getMenu('current-menu');
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="text-sm text-neutral-500 dark:text-neutral-400">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 border-t border-neutral-200 px-6 py-12 text-sm dark:border-neutral-700 md:flex-row md:gap-12 md:px-4 min-[1320px]:px-0">
-        <div>
-          <Link className="flex items-center gap-2 text-black dark:text-white md:pt-1" href="/">
-            <LogoSquare size="sm" />
-            <span className="uppercase">{SITE_NAME}</span>
-          </Link>
-        </div>
+    <footer className="text-sm text-neutral-500">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-neutral-200 p-6 text-sm min-[1320px]:px-0">
+        <div className="font-semibold uppercase text-black">Navigation</div>
         <Suspense
           fallback={
-            <div className="flex h-[188px] w-[200px] flex-col gap-2">
+            <div className="flex h-[188px] w-[200px] items-center gap-2">
               <div className={skeleton} />
               <div className={skeleton} />
               <div className={skeleton} />
@@ -37,31 +32,29 @@ export default async function Footer() {
         >
           <FooterMenu menu={menu} />
         </Suspense>
-        <div className="md:ml-auto">
-          <a
-            className="flex h-8 w-max flex-none items-center justify-center rounded-md border border-neutral-200 bg-white text-xs text-black dark:border-neutral-700 dark:bg-black dark:text-white"
-            aria-label="Deploy on Vercel"
-            href="https://vercel.com/templates/next.js/nextjs-commerce"
-          >
-            <span className="px-3">▲</span>
-            <hr className="h-full border-r border-neutral-200 dark:border-neutral-700" />
-            <span className="px-3">Deploy</span>
-          </a>
+      </div>
+      <div className="p-6 md:px-20">
+        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 rounded-lg border border-neutral-200 bg-neutral-100 px-6 py-4 shadow-sm min-[1320px]:px-0">
+          <LogoSquare size="sm" />
+          <p className="px-6 py-2 md:w-1/2 md:px-0">
+            <span className="leading-6 underline underline-offset-4">Sign up</span> for HTA emails
+            and receive the latest news from the Cave, including exclusive online pre-launches and
+            new collections.
+          </p>
+          <div className="flex items-center space-x-4 pt-4">
+            <p>insta</p>
+            <p>twitter</p>
+            <p>youtube</p>
+            <p>tik tok</p>
+          </div>
         </div>
       </div>
-      <div className="border-t border-neutral-200 py-6 text-sm dark:border-neutral-700">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1 px-4 md:flex-row md:gap-0 md:px-4 min-[1320px]:px-0">
+      <div className="py-6">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1 px-4 min-[1320px]:px-0">
           <p>
-            &copy; {copyrightDate} {copyrightName}
-            {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
+            &copy; {currentYear} {copyrightName}. All rights reserved.
           </p>
-          <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" />
-          <p>Designed in California</p>
-          <p className="md:ml-auto">
-            <a href="https://vercel.com" className="text-black dark:text-white">
-              Crafted by ▲ Vercel
-            </a>
-          </p>
+          <p>Developed by @?k</p>
         </div>
       </div>
     </footer>
