@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { SortFilterItem } from 'lib/constants';
+import type { SortFilterItem } from 'lib/constants';
 import { createUrl } from 'lib/utils';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
@@ -17,7 +17,7 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
   newParams.delete('q');
 
   return (
-    <li className="mt-2 flex" key={item.title}>
+    <li className="mt-2 flex text-black" key={item.title}>
       <DynamicTag
         href={createUrl(item.path, newParams)}
         className={clsx('w-full text-sm underline-offset-4 hover:underline', {
@@ -45,7 +45,7 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
   const DynamicTag = active ? 'p' : Link;
 
   return (
-    <li className="mt-2 flex text-sm" key={item.title}>
+    <li className="mt-2 flex text-sm text-black" key={item.title}>
       <DynamicTag
         prefetch={!active ? false : undefined}
         href={href}

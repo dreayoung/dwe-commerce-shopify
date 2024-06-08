@@ -6,7 +6,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)']
+        vcr: ['var(--font-vcr)']
+      },
+      colors: {
+        off_white: '#f1eeea'
       },
       keyframes: {
         fadeIn: {
@@ -25,7 +28,7 @@ module.exports = {
       },
       animation: {
         fadeIn: 'fadeIn .3s ease-in-out',
-        carousel: 'marquee 60s linear infinite',
+        carousel: 'marquee 30s linear infinite',
         blink: 'blink 1.4s both infinite'
       }
     }

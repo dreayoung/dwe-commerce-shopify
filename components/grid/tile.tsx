@@ -28,22 +28,17 @@ export function GridTileImage({
         }
       )}
     >
-      <div className="relative">
-        {!label ? (
+      {/* {!label ? (
           <span className="absolute inset-2 bg-zinc-900 text-zinc-400">Sold Out</span>
-        ) : null}
-        {props.src ? (
-          // eslint-disable-next-line jsx-a11y/alt-text -- `alt` is inherited from `props`, which is being enforced with TypeScript
-          <Image
-            className={clsx('h-full w-full object-cover', {
-              'transition duration-300 ease-in-out group-hover:scale-105': isInteractive
-            })}
-            {...props}
-          />
-        ) : null}
-      </div>
-      {label ? (
-        <Label title={label.title} amount={label.amount} currencyCode={label.currencyCode} />
+        ) : null} */}
+      {props.src ? (
+        // eslint-disable-next-line jsx-a11y/alt-text -- `alt` is inherited from `props`, which is being enforced with TypeScript
+        <Image
+          className={clsx('h-full w-full object-cover', {
+            'transition duration-300 ease-in-out group-hover:scale-105': isInteractive
+          })}
+          {...props}
+        />
       ) : null}
     </div>
   );

@@ -13,12 +13,14 @@ const { SITE_NAME, INSTAGRAM_URL, TIKTOK_URL, YOUTUBE_URL } = process.env;
 export default async function Navbar() {
   const menu = await getMenu('current-menu');
 
+  console.log('MENU', menu);
+
   return (
-    <nav className="relative mx-auto w-full max-w-6xl border-b border-neutral-200 p-2 md:p-6">
+    <nav className="relative mx-auto w-full max-w-6xl p-6">
       <div className="flex items-center justify-between">
-        <div className="md:hidden">
+        {/* <div className="md:hidden">
           <MobileMenu menu={menu} />
-        </div>
+        </div> */}
         <Socials />
 
         <Link href="/" className="">
@@ -32,7 +34,7 @@ export default async function Navbar() {
         </div>
       </div>
       {menu.length ? (
-        <ul className="hidden items-center justify-center gap-6 text-sm md:flex">
+        <ul className="flex items-center justify-center gap-6 text-sm">
           {menu.map((item: Menu) => (
             <li key={item.title}>
               <Link

@@ -39,7 +39,7 @@ export default function Socials() {
   ];
 
   return (
-    <div className="hidden grid-cols-2 gap-4 text-lg md:grid">
+    <div className="grid grid-cols-2 gap-4 text-sm md:text-lg">
       {links.map((social, x) => {
         const { comp, url, htfUrl } = social;
         const pageUrl = pathname == '/collectibles/herotofew' ? htfUrl : url;

@@ -1,8 +1,14 @@
 import Navbar from 'components/layout/navbar';
-import { GeistSans } from 'geist/font';
+import localFont from 'next/font/local';
 import { ensureStartsWith } from 'lib/utils';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
+
+const vcr = localFont({
+  src: './vcr.woff2',
+  display: 'swap',
+  variable: '--font-vcr'
+});
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -33,12 +39,10 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={GeistSans.variable}>
-      <body className="bg-[#f1eeea] capitalize text-black">
+    <html lang="en" className={vcr.variable}>
+      <body className="bg-off_white capitalize text-black">
         <Navbar />
-        <Suspense>
-          <main>{children}</main>
-        </Suspense>
+        <main>{children}</main>
       </body>
     </html>
   );

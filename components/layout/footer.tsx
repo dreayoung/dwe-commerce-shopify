@@ -34,7 +34,7 @@ export default async function Footer() {
         </Suspense>
       </div>
       <div className="p-6 md:px-20">
-        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 rounded-lg border border-neutral-200 bg-neutral-100 px-6 py-4 shadow-sm min-[1320px]:px-0">
+        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 rounded-lg border border-neutral-200 bg-off_white/20 px-6 py-4 shadow-sm min-[1320px]:px-0">
           <LogoSquare size="sm" />
           <p className="px-6 py-2 md:w-1/2 md:px-0">
             <span className="leading-6 underline underline-offset-4">Sign up</span> for HTA emails
