@@ -5,27 +5,26 @@ import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import MobileMenu from './mobile-menu';
-import Search from './search';
-import Socials from './socials-grid';
 const { SITE_NAME, INSTAGRAM_URL, TIKTOK_URL, YOUTUBE_URL } = process.env;
 
 export default async function Navbar() {
   const menu = await getMenu('current-menu');
 
-  console.log('MENU', menu);
-
   return (
     <nav className="relative mx-auto w-full max-w-6xl p-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between border-b border-b-neutral-800 pb-2 md:justify-around">
         {/* <div className="md:hidden">
           <MobileMenu menu={menu} />
         </div> */}
-        <Socials />
+        {/* <Socials /> */}
 
         <Link href="/" className="">
-          <LogoSquare />
+          <LogoSquare size="sm" />
         </Link>
+
+        <div className="font-vcr text-lg font-black">
+          <span>HTA</span>
+        </div>
 
         <div className="flex-none">
           <Suspense fallback={<OpenCart />}>
@@ -34,12 +33,12 @@ export default async function Navbar() {
         </div>
       </div>
       {menu.length ? (
-        <ul className="flex items-center justify-center gap-6 text-sm">
+        <ul className="mt-4 flex items-center justify-center gap-4 uppercase tracking-wider">
           {menu.map((item: Menu) => (
             <li key={item.title}>
               <Link
                 href={item.path}
-                className="text-neutral-500 underline-offset-4 hover:text-black hover:underline"
+                className="underline-offset-4 hover:text-neutral-400 hover:underline"
               >
                 {item.title}
               </Link>

@@ -63,7 +63,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl md:w-[390px]">
+            <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-800 bg-neutral-900 p-6 backdrop-blur-xl md:w-[390px]">
               <div className="text-right">
                 {/* <p className="text-lg font-semibold">My Cart</p>  */}
 
@@ -74,7 +74,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
 
               {!cart || cart.lines.length === 0 ? (
                 <div className="flex h-full w-full items-center justify-center overflow-hidden">
-                  <p className="mt-6 text-center text-lg">Your cart is empty.</p>
+                  <p className="mt-6 text-center uppercase">Your cart is empty.</p>
                 </div>
               ) : (
                 <div className="flex h-full flex-col justify-between overflow-hidden p-1">

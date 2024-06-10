@@ -1,7 +1,7 @@
 import Navbar from 'components/layout/navbar';
-import localFont from 'next/font/local';
 import { ensureStartsWith } from 'lib/utils';
-import { ReactNode, Suspense } from 'react';
+import localFont from 'next/font/local';
+import { ReactNode } from 'react';
 import './globals.css';
 
 const vcr = localFont({
@@ -39,8 +39,8 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={vcr.variable}>
-      <body className="bg-off_white capitalize text-black">
+    <html lang="en" className={`font-mono ${vcr.variable}`}>
+      <body className="bg-neutral-900 capitalize text-neutral-100">
         <Navbar />
         <main>{children}</main>
       </body>

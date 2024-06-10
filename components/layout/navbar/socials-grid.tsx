@@ -2,13 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  AiOutlineInstagram,
-  AiOutlineTwitter,
-  AiFillYoutube,
-  AiOutlineYoutube,
-  AiFillInstagram
-} from 'react-icons/ai';
+import { AiFillInstagram, AiFillYoutube, AiOutlineTwitter } from 'react-icons/ai';
 import { FaTiktok } from 'react-icons/fa';
 const { SITE_NAME, INSTAGRAM_URL, TIKTOK_URL, YOUTUBE_URL } = process.env;
 
@@ -39,7 +33,7 @@ export default function Socials() {
   ];
 
   return (
-    <div className="grid grid-cols-2 gap-4 text-sm md:text-lg">
+    <div className="hidden grid-cols-2 gap-2 text-sm md:grid md:text-lg">
       {links.map((social, x) => {
         const { comp, url, htfUrl } = social;
         const pageUrl = pathname == '/collectibles/herotofew' ? htfUrl : url;

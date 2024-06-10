@@ -9,7 +9,8 @@ module.exports = {
         vcr: ['var(--font-vcr)']
       },
       colors: {
-        off_white: '#f1eeea'
+        off_white: '#f1eeea',
+        htf_green: '#929043'
       },
       keyframes: {
         fadeIn: {

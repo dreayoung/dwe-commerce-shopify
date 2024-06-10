@@ -1,5 +1,5 @@
-import { ShoppingBagIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
+import { FaShoppingBag } from 'react-icons/fa';
 
 export default function OpenCart({
   className,
@@ -9,9 +9,9 @@ export default function OpenCart({
   quantity?: number;
 }) {
   return (
-    <div className="relative flex h-11 w-11 items-center justify-center text-black transition-colors">
-      <ShoppingBagIcon
-        className={clsx('h-4 transition-all ease-in-out hover:scale-110 ', className)}
+    <div className="relative flex h-11 w-11 items-center justify-center transition-colors">
+      <FaShoppingBag
+        className={clsx('h-6 transition-all ease-in-out hover:scale-110 ', className)}
       />
 
       {/* {quantity ? (

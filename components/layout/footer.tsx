@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import FooterMenu from 'components/layout/footer-menu';
 import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
@@ -15,9 +13,9 @@ export default async function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="text-sm text-neutral-500">
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-neutral-200 p-6 text-sm min-[1320px]:px-0">
-        <div className="font-semibold uppercase text-black">Navigation</div>
+    <footer className="text-sm">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-neutral-800 p-6 text-sm min-[1320px]:px-0">
+        <div className="font-semibold uppercase">Navigation</div>
         <Suspense
           fallback={
             <div className="flex h-[188px] w-[200px] items-center gap-2">
@@ -34,12 +32,12 @@ export default async function Footer() {
         </Suspense>
       </div>
       <div className="p-6 md:px-20">
-        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 rounded-lg border border-neutral-200 bg-off_white/20 px-6 py-4 shadow-sm min-[1320px]:px-0">
+        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 rounded-lg border border-neutral-900 bg-black px-6 py-4 shadow-sm min-[1320px]:px-0">
           <LogoSquare size="sm" />
-          <p className="px-6 py-2 md:w-1/2 md:px-0">
-            <span className="leading-6 underline underline-offset-4">Sign up</span> for HTA emails
-            and receive the latest news from the Cave, including exclusive online pre-launches and
-            new collections.
+          <p className="px-6 py-2 text-neutral-500 md:w-1/2 md:px-0">
+            <span className="leading-6 text-neutral-100 underline underline-offset-4">Sign up</span>{' '}
+            for HTA emails and receive the latest news from the Cave, including exclusive online
+            pre-launches and new collections.
           </p>
           <div className="flex items-center space-x-4 pt-4">
             <p>insta</p>
@@ -50,7 +48,7 @@ export default async function Footer() {
         </div>
       </div>
       <div className="py-6">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1 px-4 min-[1320px]:px-0">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1 px-4 text-xs min-[1320px]:px-0">
           <p>
             &copy; {currentYear} {copyrightName}. All rights reserved.
           </p>

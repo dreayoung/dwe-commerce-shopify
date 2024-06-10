@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import LogoIcon from './icons/logo';
-import logo from '../public/hero-logo.png';
+import logo from '../public/inverted_logo.png';
 
 export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
   return (
@@ -9,8 +9,8 @@ export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
       src={logo}
       alt="hero to all"
       className={clsx({
-        'h-[55px] w-[55px]': !size,
-        'h-[35px] w-[35px]': size === 'sm'
+        'h-[45px] w-[45px]': !size,
+        'h-6 w-6': size === 'sm'
       })}
     />
   );

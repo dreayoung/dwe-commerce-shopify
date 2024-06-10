@@ -33,7 +33,7 @@ export default function Search() {
         placeholder="I am looking for..."
         autoComplete="off"
         defaultValue={searchParams?.get('q') || ''}
-        className="w-full rounded-2xl border px-4 py-2 text-sm placeholder:text-neutral-600"
+        className="w-full rounded-2xl border border-black bg-off_white px-4 py-2 text-sm placeholder:text-neutral-600"
       />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
         <MagnifyingGlassIcon className="h-4" />
