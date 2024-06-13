@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-const FooterMenuItem = ({ item }: { item: Menu }) => {
+const NavMenuItem = ({ item }: { item: Menu }) => {
   const pathname = usePathname();
   const htf = pathname.includes('htf');
   const [active, setActive] = useState(pathname === item.path);
@@ -19,12 +19,10 @@ const FooterMenuItem = ({ item }: { item: Menu }) => {
     <li>
       <Link
         href={item.path}
-        className={clsx(
-          'block p-2 text-center text-sm uppercase tracking-wider underline-offset-4 hover:text-white hover:underline md:inline-block',
-          {
-            'hover:text-neutral-800': htf
-          }
-        )}
+        className={clsx('text-sm underline-offset-4 hover:text-white hover:underline', {
+          'underline underline-offset-4': active,
+          'hover:text-neutral-800': htf
+        })}
       >
         {item.title}
       </Link>
@@ -32,14 +30,14 @@ const FooterMenuItem = ({ item }: { item: Menu }) => {
   );
 };
 
-export default function FooterMenu({ menu }: { menu: Menu[] }) {
+export default function NavMenu({ menu }: { menu: Menu[] }) {
   if (!menu.length) return null;
 
   return (
     <nav>
-      <ul className="flex items-center space-x-px">
+      <ul className="mt-4 flex items-center justify-center gap-4 uppercase tracking-wider">
         {menu.map((item: Menu) => {
-          return <FooterMenuItem key={item.title} item={item} />;
+          return <NavMenuItem key={item.title} item={item} />;
         })}
       </ul>
     </nav>

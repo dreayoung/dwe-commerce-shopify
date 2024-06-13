@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
 
 import { GridTileImage } from 'components/grid/tile';
-import Footer from 'components/layout/footer';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
@@ -51,7 +49,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProductPage({ params }: { params: { handle: string } }) {
+export default async function CoreProductPage({ params }: { params: { handle: string } }) {
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
@@ -81,18 +79,18 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="mx-auto max-w-screen-2xl px-4">
-        <div className="flex flex-col p-8 md:p-12 lg:flex-row lg:gap-8">
-          <div className="h-full w-full basis-full lg:basis-4/6">
-            <Gallery
-              images={product.images.map((image: Image) => ({
-                src: image.url,
-                altText: image.altText
-              }))}
-            />
-          </div>
+      <div className="mb-32 mt-3">
+        <h1 className="mb-2 text-center font-vcr text-5xl font-medium">{product.title}</h1>
+        <p className="text-center uppercase text-neutral-700">Hero to all</p>
+        <div className="m-2 flex-row gap-8 p-4 lg:flex lg:items-start lg:justify-around">
+          <Gallery
+            images={product.images.map((image: Image) => ({
+              src: image.url,
+              altText: image.altText
+            }))}
+          />
 
-          <div className="basis-full lg:basis-2/6">
+          <div className="w-full md:w-2/3">
             <ProductDescription product={product} />
           </div>
         </div>
@@ -100,9 +98,6 @@ export default async function ProductPage({ params }: { params: { handle: string
           <RelatedProducts id={product.id} />
         </Suspense> */}
       </div>
-      <Suspense>
-        <Footer />
-      </Suspense>
     </>
   );
 }

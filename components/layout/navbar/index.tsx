@@ -5,7 +5,7 @@ import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
 import { Suspense } from 'react';
-const { SITE_NAME, INSTAGRAM_URL, TIKTOK_URL, YOUTUBE_URL } = process.env;
+// const { SITE_NAME, INSTAGRAM_URL, TIKTOK_URL, YOUTUBE_URL } = process.env;
 
 export default async function Navbar() {
   const menu = await getMenu('current-menu');
@@ -22,9 +22,9 @@ export default async function Navbar() {
           <LogoSquare size="sm" />
         </Link>
 
-        <div className="font-vcr text-lg font-black">
+        <Link href="/" className="font-vcr text-lg font-black">
           <span>HTA</span>
-        </div>
+        </Link>
 
         <div className="flex-none">
           <Suspense fallback={<OpenCart />}>
@@ -38,7 +38,7 @@ export default async function Navbar() {
             <li key={item.title}>
               <Link
                 href={item.path}
-                className="underline-offset-4 hover:text-neutral-400 hover:underline"
+                className="text-sm underline-offset-4 hover:text-white hover:underline"
               >
                 {item.title}
               </Link>

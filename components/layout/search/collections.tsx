@@ -11,7 +11,7 @@ async function CollectionList() {
 
 const skeleton = 'mb-3 h-4 w-5/6 animate-pulse rounded';
 const activeAndTitles = 'bg-neutral-800';
-const items = 'bg-neutral-400';
+const items = 'bg-neutral-800';
 
 export default function Collections() {
   return (

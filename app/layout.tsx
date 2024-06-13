@@ -3,6 +3,7 @@ import { ensureStartsWith } from 'lib/utils';
 import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import './globals.css';
+import MainLayout from './mainLayout';
 
 const vcr = localFont({
   src: './vcr.woff2',
@@ -40,10 +41,10 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`font-mono ${vcr.variable}`}>
-      <body className="bg-neutral-900 capitalize text-neutral-100">
+      <MainLayout>
         <Navbar />
         <main>{children}</main>
-      </body>
+      </MainLayout>
     </html>
   );
 }

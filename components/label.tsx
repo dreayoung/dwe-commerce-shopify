@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Price from './price';
 
 const Label = ({
@@ -11,9 +10,9 @@ const Label = ({
   currencyCode: string;
 }) => {
   return (
-    <div className="flex w-full px-4 text-black @container/label">
-      <div className="flex items-center justify-center p-1 text-xs font-semibold">
-        <h3 className="mr-4 line-clamp-2 flex-grow pl-2 leading-none tracking-tight">{title}</h3>
+    <div className="w-full @container/label">
+      <div className="flex items-center justify-between p-1 pt-2 text-xs">
+        <h3 className="line-clamp-2 flex-grow leading-none tracking-tight">{title}</h3>
         <Price
           className="flex-none p-2"
           amount={amount}
