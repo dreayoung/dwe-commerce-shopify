@@ -2,10 +2,9 @@
 
 import clsx from 'clsx';
 import Image from 'next/image';
-import LogoIcon from './icons/logo';
-import logo_inverted from '../public/inverted_logo.png';
-import logo from '../public/hero-logo.png';
 import { usePathname } from 'next/navigation';
+import logo_inverted from '../public/Inverted_logo.png';
+import logo from '../public/hero-logo.png';
 
 export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
   const path = usePathname();
