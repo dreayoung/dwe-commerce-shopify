@@ -32,7 +32,7 @@ export default async function CorePage() {
       ) : (
         <div className="mx-4 mb-32 md:mx-24">
           <div className="flex items-center justify-center py-4">
-            <h1 className="text-center font-vcr text-5xl uppercase text-neutral-800 lg:text-8xl">
+            <h1 className="text-center font-hta text-5xl uppercase text-neutral-800 lg:text-8xl">
               {collection?.description}
             </h1>
           </div>

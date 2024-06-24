@@ -22,7 +22,7 @@ export default async function Navbar() {
           <LogoSquare size="sm" />
         </Link>
 
-        <Link href="/" className="font-vcr text-lg font-black">
+        <Link href="/" className="font-hta text-2xl font-black">
           <span>HTA</span>
         </Link>
 

@@ -12,7 +12,9 @@ const Label = ({
   return (
     <div className="w-full @container/label">
       <div className="flex items-center justify-between p-1 pt-2 text-xs">
-        <h3 className="line-clamp-2 flex-grow leading-none tracking-tight">{title}</h3>
+        <h3 className="line-clamp-2 flex-grow font-hta text-lg leading-none tracking-tight">
+          {title}
+        </h3>
         <Price
           className="flex-none p-2"
           amount={amount}

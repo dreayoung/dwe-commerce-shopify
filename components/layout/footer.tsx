@@ -12,9 +12,9 @@ export default async function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="text-sm">
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-transparent/60 p-6 text-sm min-[1320px]:px-0">
-        <div className="font-semibold uppercase">Navigation</div>
+    <footer className="mx-auto grid min-h-screen content-end gap-4 pb-10 text-sm">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-neutral-800 p-6 text-sm min-[1320px]:px-0">
+        <div className="font-hta text-lg font-semibold uppercase">Navigation</div>
         <Suspense
           fallback={
             <div className="flex h-[188px] w-[200px] items-center gap-2">
@@ -47,7 +47,7 @@ export default async function Footer() {
         </div>
       </div>
       <div className="py-6">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1 px-4 text-xs min-[1320px]:px-0">
+        <div className="flex w-full max-w-7xl flex-col items-center justify-end gap-1 px-4 text-xs min-[1320px]:px-0">
           <p>
             &copy; {currentYear} {copyrightName}. All rights reserved.
           </p>

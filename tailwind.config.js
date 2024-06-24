@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        vcr: ['var(--font-vcr)']
+        hta: ['var(--font-hta)']
       },
       colors: {
         off_white: '#f1eeea',

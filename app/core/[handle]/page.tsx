@@ -82,8 +82,8 @@ export default async function CoreProductPage({ params }: { params: { handle: st
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="mb-32 mt-3">
-        <h1 className="mb-2 text-center font-vcr text-5xl font-medium">{product.title}</h1>
+      <div className="mt-3 min-h-screen pt-20">
+        <h1 className="mb-2 text-center font-hta text-5xl font-medium">{product.title}</h1>
         <p className="text-center uppercase text-neutral-700">Hero to all</p>
         <div className="m-4 flex-row gap-8 p-4 lg:flex lg:items-start lg:justify-around">
           <Gallery

@@ -1,14 +1,20 @@
 import Navbar from 'components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
+import { Londrina_Solid } from 'next/font/google';
 import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import './globals.css';
 import MainLayout from './mainLayout';
 
-const vcr = localFont({
-  src: './vcr.woff2',
+const HtaFont = localFont({
+  src: '../fonts/HtaFont-Regular.ttf',
   display: 'swap',
-  variable: '--font-vcr'
+  variable: '--font-hta'
+});
+
+const londria = Londrina_Solid({
+  subsets: ['latin'],
+  weight: ['100', '300']
 });
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -40,7 +46,10 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`font-mono ${vcr.variable}`}>
+    <html
+      lang="en"
+      className={`font-light tracking-widest ${londria.className} ${HtaFont.variable}`}
+    >
       <MainLayout>
         <Navbar />
         <main>{children}</main>
