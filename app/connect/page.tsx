@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function ConnectPage() {
   const inputC = 'bg-transparent tracking-widest border-[1px] border-neutral-800 p-4 rounded-lg';
 

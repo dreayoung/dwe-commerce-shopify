@@ -33,7 +33,7 @@ export default async function Navbar() {
         </div>
       </div>
       {menu.length ? (
-        <ul className="mx-auto flex w-fit items-center justify-center gap-4 rounded-2xl border-[1px] border-neutral-800 bg-black p-2 px-6">
+        <ul className="mx-auto flex w-fit items-center justify-center gap-4 rounded-2xl border-[1px] border-neutral-800 p-2 px-6">
           {menu.map((item: Menu) => (
             <li key={item.title}>
               <Link
