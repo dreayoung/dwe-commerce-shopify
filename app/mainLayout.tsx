@@ -10,7 +10,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <body
-      className={clsx('bg-[#0a0a0a] capitalize text-neutral-100', {
+      className={clsx('bg-[#0a0a0a] tracking-widest text-neutral-400', {
         'bg-[#686732] text-neutral-900': htf
       })}
     >

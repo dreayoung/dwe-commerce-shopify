@@ -1,7 +1,9 @@
 import FooterMenu from 'components/layout/footer-menu';
 import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
+import Link from 'next/link';
 import { Suspense } from 'react';
+import { FaInstagram } from 'react-icons/fa';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
@@ -39,7 +41,9 @@ export default async function Footer() {
             new collections.
           </p>
           <div className="flex items-center space-x-4 pt-4">
-            <p>insta</p>
+            <Link href="#" className="hover:text-white">
+              <FaInstagram />
+            </Link>
             <p>twitter</p>
             <p>youtube</p>
             <p>tik tok</p>

@@ -32,9 +32,11 @@ export default async function Page({ params }: { params: { collection: string } 
         <p className="py-3 text-lg">{`No products found in this collection`}</p>
       ) : (
         <div className="mx-4">
-          <div className="flex flex-col items-center justify-center space-y-2 py-12 text-center font-vcr uppercase">
-            <p className="text-5xl text-neutral-800/60 lg:text-8xl">{collection?.description}</p>
-            <h1 className="text-neutral-800">{collection?.title}</h1>
+          <div className="flex flex-col items-center justify-center space-y-2 py-12 text-center uppercase">
+            <p className="font-hta text-5xl text-neutral-800/60 lg:text-8xl">
+              {collection?.description}
+            </p>
+            {/* <h1 className="text-neutral-800">{collection?.title}</h1> */}
           </div>
           <Grid className="my-8">
             <ProductGridItems

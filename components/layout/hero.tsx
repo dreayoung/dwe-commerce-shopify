@@ -16,12 +16,12 @@ export default function Hero() {
 
   return (
     <div className="flex flex-col space-y-20 py-24">
-      <div className="relative flex h-40 items-center justify-center overflow-x-hidden text-center">
+      <div className="relative flex h-40 items-center justify-center overflow-hidden text-center font-hta">
         <h1 className="relative z-20">Are you who you want to be?</h1>
-        <span className="absolute left-1/2 top-auto hidden -translate-x-1/2 transform whitespace-nowrap text-center font-hta uppercase text-neutral-800/40 md:block md:text-9xl lg:text-[10rem]">
+        <span className="absolute left-1/2 top-auto hidden -translate-x-1/2 transform whitespace-nowrap text-center uppercase text-neutral-800/40 md:block md:text-9xl lg:text-[10rem]">
           Herotoall.io
         </span>
-        <span className="words absolute top-auto block text-center font-hta text-9xl uppercase text-neutral-800/25 md:hidden">
+        <span className="words absolute top-auto block text-center text-[12rem] uppercase text-neutral-800/25 md:hidden">
           Herotoall.io
         </span>
       </div>

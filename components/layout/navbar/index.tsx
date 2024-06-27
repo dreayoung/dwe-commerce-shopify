@@ -33,12 +33,12 @@ export default async function Navbar() {
         </div>
       </div>
       {menu.length ? (
-        <ul className="mt-4 flex items-center justify-center gap-4 uppercase tracking-wider">
+        <ul className="mt-4 flex items-center justify-center gap-4 tracking-wider">
           {menu.map((item: Menu) => (
             <li key={item.title}>
               <Link
                 href={item.path}
-                className="text-sm underline-offset-4 hover:text-white hover:underline"
+                className="text-sm uppercase underline-offset-4 hover:text-white hover:underline md:text-lg"
               >
                 {item.title}
               </Link>

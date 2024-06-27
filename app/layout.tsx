@@ -46,10 +46,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`font-light tracking-widest ${londria.className} ${HtaFont.variable}`}
-    >
+    <html lang="en" className={`font-extralight ${londria.className} ${HtaFont.variable}`}>
       <MainLayout>
         <Navbar />
         <main>{children}</main>

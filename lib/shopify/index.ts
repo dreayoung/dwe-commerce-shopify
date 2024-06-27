@@ -293,7 +293,7 @@ export async function getCollectionProducts({
 }): Promise<Product[]> {
   const res = await shopifyFetch<ShopifyCollectionProductsOperation>({
     query: getCollectionProductsQuery,
-    tags: [TAGS.collections, TAGS.products],
+    tags: [TAGS.collections],
     variables: {
       handle: collection,
       reverse,

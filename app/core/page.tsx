@@ -19,7 +19,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function CorePage() {
+export default async function CorePage({
+  searchParams
+}: {
+  searchParams?: { [key: string]: string | undefined };
+}) {
   const products = await getCollectionProducts({ collection: 'core' });
   const collection = await getCollection('core');
 
@@ -36,11 +40,13 @@ export default async function CorePage() {
               {collection?.description}
             </h1>
           </div>
-          {/* <div className="py-8 text-sm flex items-center justify-center gap-4">
-            <div className="py-1 px-6 rounded-2xl border border-white">Tops</div>
-            <div className="py-1 px-6 rounded-2xl border border-white">Bottoms</div>
-            <div className="py-1 px-6 rounded-2xl border border-white">Capes</div>
-          </div> */}
+          <div className="relative mt-8 flex w-full items-center justify-end gap-4 text-sm">
+            <span className="absolute left-0 top-0">categories</span>
+            <div className="rounded-2xl underline underline-offset-4">all</div>
+            <div className="rounded-2xl underline-offset-4 hover:underline">Tops</div>
+            <div className="rounded-2xl">Bottoms</div>
+            <div className="rounded-2xl">Capes</div>
+          </div>
           <Grid className="">
             <ProductGridItems collection="core" products={products} />
           </Grid>

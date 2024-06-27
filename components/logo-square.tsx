@@ -16,7 +16,7 @@ export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
       alt="hero to all"
       className={clsx({
         'h-[45px] w-[45px]': !size,
-        'h-6 w-6': size === 'sm',
+        'h-6 w-7': size === 'sm',
         'h-10 w-10': size === 'sm' && htf
       })}
     />

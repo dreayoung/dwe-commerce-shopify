@@ -1,3 +1,5 @@
+'use client';
+
 import Grid from 'components/grid';
 import { GridTileImage } from 'components/grid/tile';
 import Label from 'components/label';
@@ -11,6 +13,8 @@ export default function ProductGridItems({
   products: Product[];
   collection: string;
 }) {
+  console.log('products', products);
+
   return (
     <>
       {products.map((product) => (
