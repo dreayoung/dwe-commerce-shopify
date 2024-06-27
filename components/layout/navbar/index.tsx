@@ -12,7 +12,7 @@ export default async function Navbar() {
 
   return (
     <nav className="relative mx-auto w-full max-w-6xl p-6">
-      <div className="flex items-center justify-between border-b border-b-neutral-800 pb-2 md:justify-around">
+      <div className="flex items-center justify-between pb-2 md:justify-around">
         {/* <div className="md:hidden">
           <MobileMenu menu={menu} />
         </div> */}
@@ -33,12 +33,12 @@ export default async function Navbar() {
         </div>
       </div>
       {menu.length ? (
-        <ul className="mt-4 flex items-center justify-center gap-4 tracking-wider">
+        <ul className="mx-auto flex w-fit items-center justify-center gap-4 rounded-2xl border-[1px] border-neutral-800 bg-black p-2 px-6">
           {menu.map((item: Menu) => (
             <li key={item.title}>
               <Link
                 href={item.path}
-                className="text-sm uppercase underline-offset-4 hover:text-white hover:underline md:text-lg"
+                className="text-sm lowercase underline-offset-4 hover:text-white hover:underline md:text-lg"
               >
                 {item.title}
               </Link>

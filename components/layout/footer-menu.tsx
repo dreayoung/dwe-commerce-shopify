@@ -20,7 +20,7 @@ const FooterMenuItem = ({ item }: { item: Menu }) => {
       <Link
         href={item.path}
         className={clsx(
-          'block p-2 text-center text-sm uppercase tracking-wider underline-offset-4 hover:text-white hover:underline md:inline-block',
+          'block p-2 text-center text-sm lowercase tracking-widest underline-offset-4 hover:text-white hover:underline md:inline-block',
           {
             'hover:text-neutral-800': htf
           }
