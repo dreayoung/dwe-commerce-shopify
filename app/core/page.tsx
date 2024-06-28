@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const categoriesTags = ['ALL', 'BOTTOMS', 'CAPES', 'TOPS'];
+const categoriesTags = ['ALL', 'CAPS', 'TOPS', 'BOTTOMS', 'CAPES'];
 
 export default async function CorePage({
   searchParams
