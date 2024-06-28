@@ -69,8 +69,8 @@ export default function SubscribeSection() {
         </div>
       )}
 
-      {addedCustomer?.id !== 'Error adding customer' ? (
-        <p className="text-xs text-red-700">{addedCustomer?.id}</p>
+      {addedCustomer?.id === 'Error adding customer' ? (
+        <p className="text-xs text-red-700">Error.</p>
       ) : addedCustomer?.id.includes('gid') ? (
         <p className="text-xs text-green-700">✔️ sucessfully added.</p>
       ) : null}
