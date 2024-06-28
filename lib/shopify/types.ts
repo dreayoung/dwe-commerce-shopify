@@ -263,3 +263,5 @@ export type ShopifyProductsOperation = {
     sortKey?: string;
   };
 };
+
+export type Socials = {};

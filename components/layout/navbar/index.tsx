@@ -1,11 +1,10 @@
+import NavMenu from './nav-menu';
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
 import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
-import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
 import { Suspense } from 'react';
-// const { SITE_NAME, INSTAGRAM_URL, TIKTOK_URL, YOUTUBE_URL } = process.env;
 
 export default async function Navbar() {
   const menu = await getMenu('current-menu');
@@ -13,11 +12,6 @@ export default async function Navbar() {
   return (
     <nav className="relative mx-auto w-full max-w-6xl p-6">
       <div className="flex items-center justify-between pb-2 md:justify-around">
-        {/* <div className="md:hidden">
-          <MobileMenu menu={menu} />
-        </div> */}
-        {/* <Socials /> */}
-
         <Link href="/" className="">
           <LogoSquare size="sm" />
         </Link>
@@ -32,20 +26,7 @@ export default async function Navbar() {
           </Suspense>
         </div>
       </div>
-      {menu.length ? (
-        <ul className="mx-auto flex w-fit items-center justify-center gap-4 rounded-2xl border-[1px] border-neutral-800 p-2 px-6">
-          {menu.map((item: Menu) => (
-            <li key={item.title}>
-              <Link
-                href={item.path}
-                className="text-sm lowercase underline-offset-4 hover:text-white hover:underline md:text-lg"
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      ) : null}
+      <NavMenu menu={menu} />
     </nav>
   );
 }

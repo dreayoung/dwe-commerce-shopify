@@ -10,7 +10,8 @@ module.exports = {
       },
       colors: {
         off_white: '#f1eeea',
-        htf_green: '#929043'
+        htf_green: '#929043',
+        htf_bg: '#686732'
       },
       keyframes: {
         fadeIn: {

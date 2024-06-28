@@ -79,9 +79,11 @@ export default async function CoreProductPage({ params }: { params: { handle: st
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="mb-32 mt-3">
-        <h1 className="mb-2 text-center font-vcr text-5xl font-medium">{product.title}</h1>
-        <p className="text-center uppercase text-neutral-700">Hero to all</p>
+      <div className="mt-12">
+        <h1 className="mb-2 text-center font-hta text-5xl font-medium lg:text-7xl">
+          {product.title}
+        </h1>
+        {/* <p className="text-center uppercase text-neutral-700">{params.handle}</p> */}
         <div className="m-2 flex-row gap-8 p-4 lg:flex lg:items-start lg:justify-around">
           <Gallery
             images={product.images.map((image: Image) => ({

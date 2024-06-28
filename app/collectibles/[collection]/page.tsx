@@ -29,11 +29,11 @@ export default async function Page({ params }: { params: { collection: string } 
   return (
     <section>
       {products.length === 0 ? (
-        <p className="py-3 pt-32 text-center font-hta text-3xl lg:text-6xl">{`No collectibles right now`}</p>
+        <p className="px-20 pt-32 text-center font-hta text-3xl lg:text-6xl">{`No collectibles right now`}</p>
       ) : (
         <div className="mx-4">
           <div className="flex flex-col items-center justify-center space-y-2 py-12 text-center uppercase">
-            <p className="font-hta text-5xl text-neutral-800/60 lg:text-8xl">
+            <p className="text-center font-hta text-6xl uppercase text-white/10 lg:text-8xl">
               {collection?.description}
             </p>
             {/* <h1 className="text-neutral-800">{collection?.title}</h1> */}

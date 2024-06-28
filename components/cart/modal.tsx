@@ -1,12 +1,14 @@
 'use client';
 
 import { Dialog, Transition } from '@headlessui/react';
+import clsx from 'clsx';
 import Price from 'components/price';
 import { DEFAULT_OPTION } from 'lib/constants';
 import type { Cart } from 'lib/shopify/types';
 import { createUrl } from 'lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import CloseCart from './close-cart';
 import { DeleteItemButton } from './delete-item-button';
@@ -18,6 +20,9 @@ type MerchandiseSearchParams = {
 };
 
 export default function CartModal({ cart }: { cart: Cart | undefined }) {
+  const path = usePathname();
+  const htf = path.includes('herotofew');
+
   const [isOpen, setIsOpen] = useState(false);
   const quantityRef = useRef(cart?.totalQuantity);
   const openCart = () => setIsOpen(true);
@@ -63,7 +68,14 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-800 bg-neutral-900 p-6 backdrop-blur-xl md:w-[390px]">
+            <Dialog.Panel
+              className={clsx(
+                'fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-800 bg-black p-6 backdrop-blur-xl md:w-[390px]',
+                {
+                  'border-htf_bg bg-htf_bg': htf
+                }
+              )}
+            >
               <div className="text-right">
                 {/* <p className="text-lg font-semibold">My Cart</p>  */}
 
@@ -74,7 +86,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
 
               {!cart || cart.lines.length === 0 ? (
                 <div className="flex h-full w-full items-center justify-center overflow-hidden">
-                  <p className="mt-6 text-center font-hta uppercase">Your cart is empty.</p>
+                  <p className="mt-6 text-center font-hta text-xl uppercase">Your cart is empty.</p>
                 </div>
               ) : (
                 <div className="flex h-full flex-col justify-between overflow-hidden p-1">

@@ -8,23 +8,22 @@ import { useEffect, useState } from 'react';
 
 const FooterMenuItem = ({ item }: { item: Menu }) => {
   const pathname = usePathname();
-  const htf = pathname.includes('htf');
+  const htf = pathname.includes('herotofew');
   const [active, setActive] = useState(pathname === item.path);
 
   useEffect(() => {
-    setActive(pathname === item.path);
+    setActive(pathname.includes(item.path));
   }, [pathname, item.path]);
 
   return (
     <li>
       <Link
         href={item.path}
-        className={clsx(
-          'block p-2 text-center text-sm lowercase tracking-widest underline-offset-4 hover:text-white hover:underline md:inline-block',
-          {
-            'hover:text-neutral-800': htf
-          }
-        )}
+        className={clsx('block p-2 text-center text-sm lowercase tracking-widest md:inline-block', {
+          'font-bold text-white': active && !htf,
+          'font-bold': active && htf,
+          'hover:text-white': !htf
+        })}
       >
         {item.title}
       </Link>

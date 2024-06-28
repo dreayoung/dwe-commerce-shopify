@@ -6,12 +6,12 @@ import { ReactNode } from 'react';
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   const path = usePathname();
-  const htf = path.includes('htf');
+  const htf = path.includes('herotofew');
 
   return (
     <body
       className={clsx('bg-black tracking-widest text-neutral-400', {
-        'bg-[#686732] text-neutral-900': htf
+        'bg-htf_bg text-neutral-900': htf
       })}
     >
       {children}

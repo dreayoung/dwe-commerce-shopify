@@ -8,7 +8,7 @@ import logo from '../public/hero-logo.png';
 
 export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
   const path = usePathname();
-  const htf = path.includes('htf');
+  const htf = path.includes('herotofew');
 
   return (
     <Image
@@ -17,7 +17,7 @@ export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
       className={clsx({
         'h-[45px] w-[45px]': !size,
         'h-6 w-7': size === 'sm',
-        'h-10 w-10': size === 'sm' && htf
+        'h-12 w-[3rem]': htf
       })}
     />
   );

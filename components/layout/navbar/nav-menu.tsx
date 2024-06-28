@@ -8,20 +8,21 @@ import { useEffect, useState } from 'react';
 
 const NavMenuItem = ({ item }: { item: Menu }) => {
   const pathname = usePathname();
-  const htf = pathname.includes('htf');
+  const htf = pathname.includes('herotofew');
   const [active, setActive] = useState(pathname === item.path);
 
   useEffect(() => {
-    setActive(pathname === item.path);
+    setActive(pathname.includes(item.path));
   }, [pathname, item.path]);
 
   return (
     <li>
       <Link
         href={item.path}
-        className={clsx('text-sm underline-offset-4 hover:text-white hover:underline', {
-          'underline underline-offset-4': active,
-          'hover:text-neutral-800': htf
+        className={clsx('text-sm underline-offset-4', {
+          'font-bold text-white': active && !htf,
+          'font-bold': active && htf,
+          'hover:text-white': !htf
         })}
       >
         {item.title}
@@ -31,11 +32,18 @@ const NavMenuItem = ({ item }: { item: Menu }) => {
 };
 
 export default function NavMenu({ menu }: { menu: Menu[] }) {
+  const pathname = usePathname();
+
   if (!menu.length) return null;
 
   return (
     <nav>
-      <ul className="mt-4 flex items-center justify-center gap-4 uppercase tracking-wider">
+      <ul
+        className={clsx(
+          'mx-auto flex w-fit items-center justify-center gap-4 rounded-2xl border-[1px] border-neutral-800 bg-transparent p-1 px-6',
+          {}
+        )}
+      >
         {menu.map((item: Menu) => {
           return <NavMenuItem key={item.title} item={item} />;
         })}

@@ -4,19 +4,20 @@ import { getMenu } from 'lib/shopify';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { FaInstagram } from 'react-icons/fa';
+import FooterLinks from './footer-links';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
 export default async function Footer() {
   const currentYear = new Date().getFullYear();
-  const skeleton = 'w-full h-6 animate-pulse rounded bg-neutral-200 dark:bg-neutral-700';
+  const skeleton = 'w-full h-6 animate-pulse rounded bg-neutral-900';
   const menu = await getMenu('current-menu');
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
     <footer className="mx-auto grid min-h-screen content-end gap-4 pb-10 text-sm">
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-neutral-800 p-6 text-sm min-[1320px]:px-0">
-        <div className="font-hta text-lg font-semibold uppercase">Navigation</div>
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-neutral-900 p-6 text-sm min-[1320px]:px-0">
+        <div className="font-hta text-xl font-semibold uppercase">Navigation</div>
         <Suspense
           fallback={
             <div className="flex h-[188px] w-[200px] items-center gap-2">
@@ -40,14 +41,7 @@ export default async function Footer() {
             and receive the latest news from the Cave, including exclusive online pre-launches and
             new collections.
           </p>
-          <div className="flex items-center space-x-4 pt-4">
-            <Link href="#" className="hover:text-white">
-              <FaInstagram />
-            </Link>
-            <p>twitter</p>
-            <p>youtube</p>
-            <p>tik tok</p>
-          </div>
+          <FooterLinks />
         </div>
       </div>
       <div className="py-6">
