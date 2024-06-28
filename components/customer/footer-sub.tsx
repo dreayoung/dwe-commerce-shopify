@@ -30,7 +30,7 @@ export default function SubscribeSection() {
 
   return (
     <>
-      <p className="px-6 py-2 md:w-[80%] md:px-0">
+      <p className="py-2 md:w-[80%] md:px-0">
         <span
           onClick={() => setReveal(true)}
           className="leading-6 underline underline-offset-4 hover:cursor-pointer hover:text-off_white"
@@ -56,7 +56,7 @@ export default function SubscribeSection() {
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-                className="w-full bg-transparent focus-visible:outline-none"
+                className="w-full bg-transparent tracking-widest focus-visible:outline-none"
               />
               <button
                 type="submit"

@@ -21,7 +21,7 @@ export default function Hero() {
         <span className="absolute left-1/2 top-auto hidden -translate-x-1/2 transform whitespace-nowrap text-center uppercase text-neutral-800/40 md:block md:text-9xl lg:text-[10rem]">
           Herotoall.io
         </span>
-        <span className="words absolute top-auto block text-center text-[12rem] uppercase text-neutral-800/25 md:hidden">
+        <span className="words absolute top-auto block text-center text-[12rem] uppercase text-neutral-800/40 md:hidden">
           Herotoall.io
         </span>
       </div>
