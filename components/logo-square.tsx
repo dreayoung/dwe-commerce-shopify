@@ -17,7 +17,7 @@ export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
       className={clsx({
         'h-[45px] w-[45px]': !size,
         'h-6 w-7': size === 'sm',
-        'h-12 w-[3rem]': htf
+        'h-12 w-14': size === 'sm' && htf
       })}
     />
   );

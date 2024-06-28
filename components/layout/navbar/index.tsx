@@ -11,7 +11,7 @@ export default async function Navbar() {
 
   return (
     <nav className="relative mx-auto w-full max-w-6xl p-6">
-      <div className="flex items-center justify-between pb-2 md:justify-around">
+      <div className="flex items-center justify-between border-b border-neutral-100/10 pb-2  md:justify-around">
         <Link href="/" className="">
           <LogoSquare size="sm" />
         </Link>

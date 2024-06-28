@@ -10,6 +10,7 @@ import {
   editCartItemsMutation,
   removeFromCartMutation
 } from './mutations/cart';
+import { addCustomerMutation } from './mutations/customer';
 import { getCartQuery } from './queries/cart';
 import {
   getCollectionProductsQuery,
@@ -27,6 +28,7 @@ import {
   Cart,
   Collection,
   Connection,
+  Customer,
   Image,
   Menu,
   Page,
@@ -39,6 +41,7 @@ import {
   ShopifyCollectionProductsOperation,
   ShopifyCollectionsOperation,
   ShopifyCreateCartOperation,
+  ShopifyCreateCustomerOperation,
   ShopifyMenuOperation,
   ShopifyPageOperation,
   ShopifyPagesOperation,
@@ -201,6 +204,22 @@ const reshapeProducts = (products: ShopifyProduct[]) => {
   return reshapedProducts;
 };
 
+export async function createCustomer(email: string): Promise<Customer> {
+  const res = await shopifyFetch<ShopifyCreateCustomerOperation>({
+    query: addCustomerMutation,
+    variables: {
+      input: {
+        email,
+        password: 'herotofew',
+        acceptsMarketing: true
+      }
+    },
+    cache: 'no-store'
+  });
+
+  return res.body.data.customerCreate.customer;
+}
+
 export async function createCart(): Promise<Cart> {
   const res = await shopifyFetch<ShopifyCreateCartOperation>({
     query: createCartMutation,
@@ -285,11 +304,13 @@ export async function getCollection(handle: string): Promise<Collection | undefi
 export async function getCollectionProducts({
   collection,
   reverse,
-  sortKey
+  sortKey,
+  tagQ
 }: {
   collection: string;
   reverse?: boolean;
   sortKey?: string;
+  tagQ?: string;
 }): Promise<Product[]> {
   const res = await shopifyFetch<ShopifyCollectionProductsOperation>({
     query: getCollectionProductsQuery,
@@ -297,7 +318,8 @@ export async function getCollectionProducts({
     variables: {
       handle: collection,
       reverse,
-      sortKey: sortKey === 'CREATED_AT' ? 'CREATED' : sortKey
+      sortKey: sortKey === 'CREATED_AT' ? 'CREATED' : sortKey,
+      tagQ
     }
   });
 

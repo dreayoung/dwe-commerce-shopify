@@ -8,6 +8,25 @@ export type Edge<T> = {
   node: T;
 };
 
+export type Customer = {
+  id: string;
+};
+
+export type ShopifyCreateCustomerOperation = {
+  data: {
+    customerCreate: {
+      customer: Customer;
+    };
+  };
+  variables: {
+    input: {
+      email: string;
+      password: string;
+      acceptsMarketing: boolean;
+    };
+  };
+};
+
 export type Cart = Omit<ShopifyCart, 'lines'> & {
   lines: CartItem[];
 };
@@ -203,6 +222,7 @@ export type ShopifyCollectionProductsOperation = {
     handle: string;
     reverse?: boolean;
     sortKey?: string;
+    tagQ?: string;
   };
 };
 
@@ -265,3 +285,9 @@ export type ShopifyProductsOperation = {
 };
 
 export type Socials = {};
+
+export type ConnectForm = {
+  email: string;
+  name: string;
+  message: string;
+};

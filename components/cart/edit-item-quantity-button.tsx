@@ -6,8 +6,12 @@ import { updateItemQuantity } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import type { CartItem } from 'lib/shopify/types';
 import { useFormState, useFormStatus } from 'react-dom';
+import { usePathname } from 'next/navigation';
 
 function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
+  const path = usePathname();
+  const htf = path.includes('herotofew');
+
   const { pending } = useFormStatus();
 
   return (
@@ -27,11 +31,11 @@ function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
       )}
     >
       {pending ? (
-        <LoadingDots className="bg-black dark:bg-white" />
+        <LoadingDots className={clsx('bg-off_white', { 'bg-black': htf })} />
       ) : type === 'plus' ? (
-        <PlusIcon className="h-4 w-4 dark:text-neutral-500" />
+        <PlusIcon className="h-4 w-4" />
       ) : (
-        <MinusIcon className="h-4 w-4 dark:text-neutral-500" />
+        <MinusIcon className="h-4 w-4" />
       )}
     </button>
   );

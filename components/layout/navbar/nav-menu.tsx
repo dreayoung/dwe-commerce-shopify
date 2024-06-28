@@ -32,18 +32,11 @@ const NavMenuItem = ({ item }: { item: Menu }) => {
 };
 
 export default function NavMenu({ menu }: { menu: Menu[] }) {
-  const pathname = usePathname();
-
   if (!menu.length) return null;
 
   return (
     <nav>
-      <ul
-        className={clsx(
-          'mx-auto flex w-fit items-center justify-center gap-4 rounded-2xl border-[1px] border-neutral-800 bg-transparent p-1 px-6',
-          {}
-        )}
-      >
+      <ul className="mt-3 flex items-center justify-center gap-4">
         {menu.map((item: Menu) => {
           return <NavMenuItem key={item.title} item={item} />;
         })}

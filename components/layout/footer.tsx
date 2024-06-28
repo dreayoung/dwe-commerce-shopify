@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import { FaInstagram } from 'react-icons/fa';
 import FooterLinks from './footer-links';
+import SubscribeSection from '../customer/footer-sub';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
@@ -16,7 +17,7 @@ export default async function Footer() {
 
   return (
     <footer className="mx-auto grid min-h-screen content-end gap-4 pb-10 text-sm">
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-neutral-900 p-6 text-sm min-[1320px]:px-0">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-neutral-100/10 p-6 text-sm min-[1320px]:px-0">
         <div className="font-hta text-xl font-semibold uppercase">Navigation</div>
         <Suspense
           fallback={
@@ -34,18 +35,14 @@ export default async function Footer() {
         </Suspense>
       </div>
       <div className="p-6 md:px-20">
-        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 rounded-lg border border-transparent/10 bg-transparent/20 px-6 py-4 shadow-sm min-[1320px]:px-0">
+        <div className="mx-auto flex w-full max-w-2xl flex-col items-center justify-center gap-4 rounded-lg border border-neutral-100/10 bg-transparent/20 p-12 shadow-sm">
           <LogoSquare size="sm" />
-          <p className="px-6 py-2  md:w-1/2 md:px-0">
-            <span className="leading-6 underline underline-offset-4">Sign up</span> for HTA emails
-            and receive the latest news from the Cave, including exclusive online pre-launches and
-            new collections.
-          </p>
+          <SubscribeSection />
           <FooterLinks />
         </div>
       </div>
       <div className="py-6">
-        <div className="flex w-full max-w-7xl flex-col items-center justify-end gap-1 px-4 text-xs min-[1320px]:px-0">
+        <div className="flex w-full max-w-7xl flex-col items-center justify-end gap-1 px-4 text-xs">
           <p>
             &copy; {currentYear} {copyrightName}. All rights reserved.
           </p>

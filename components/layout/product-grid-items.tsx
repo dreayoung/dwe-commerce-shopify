@@ -13,7 +13,7 @@ export default function ProductGridItems({
   products: Product[];
   collection: string;
 }) {
-  console.log('products', products);
+  // console.log('products', products);
 
   return (
     <>

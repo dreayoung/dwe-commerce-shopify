@@ -37,9 +37,13 @@ export const getCollectionsQuery = /* GraphQL */ `
 `;
 
 export const getCollectionProductsQuery = /* GraphQL */ `
-  query getCollectionProducts($handle: String!, $sortKey: ProductCollectionSortKeys) {
+  query getCollectionProducts(
+    $handle: String!
+    $sortKey: ProductCollectionSortKeys
+    $tagQ: String
+  ) {
     collection(handle: $handle) {
-      products(sortKey: $sortKey, first: 100) {
+      products(sortKey: $sortKey, first: 100, filters: [{ tag: $tagQ }]) {
         edges {
           node {
             ...product
