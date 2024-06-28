@@ -77,10 +77,10 @@ export default function ConnectForm() {
         <div className="text-htfgreen text-center text-xs brightness-125">
           ✔️ your message has been sent
         </div>
-      ) : messageFail ? (
-        <div className="text-center text-xs brightness-125">
-          x something went wrong. please check all fields and try again. <br /> or contact me
-          manually connect@herotoall.io
+      ) : !messageFail ? (
+        <div className="px-6 text-center text-xs brightness-125">
+          x something went wrong. please check all fields and try again. or contact me manually{' '}
+          <span className="font-bold text-off_white">connect@herotoall.io</span>
         </div>
       ) : null}
     </form>

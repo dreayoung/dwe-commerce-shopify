@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function CollectiblesPage() {
   return (
-    <div className="flex flex-col items-center justify-center gap-2 space-y-6 pt-40 text-center font-hta text-3xl uppercase md:flex-row md:space-x-6 md:space-y-0 lg:text-4xl">
+    <div className="flex flex-col items-center justify-center gap-2 space-y-6 pt-40 text-center font-hta text-2xl uppercase md:flex-row md:space-x-6 md:space-y-0 lg:text-3xl">
       <Link href="/collectibles/herotoall" className="hover:text-neutral-600">
         Hero to all <br /> collectibles
       </Link>

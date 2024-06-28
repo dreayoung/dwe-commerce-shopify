@@ -18,6 +18,7 @@ export async function sendMail({ emailContent }: { emailContent: ConnectForm }) 
       pass: EMAIL_PASS
     }
   });
+
   try {
     const testResult = await transporter.verify();
     console.log('test Result', testResult);
