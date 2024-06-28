@@ -40,7 +40,7 @@ export default async function CorePage({
             {collection?.description}
           </h1>
         </div>
-        <div className="relative mr-4 mt-8 flex w-full items-center justify-end gap-4 text-sm">
+        <div className="relative mr-4 mt-8 flex w-full items-center justify-end gap-4 text-xs md:text-sm">
           <span className="absolute left-0 top-0 uppercase">tags</span>
           {categoriesTags.map((cat: any, x: number) => {
             return <CategoryFilter key={`${cat}-${x}`} item={cat} />;
