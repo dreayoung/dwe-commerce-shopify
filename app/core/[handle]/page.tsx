@@ -53,7 +53,6 @@ export async function generateMetadata({
 
 export default async function CoreProductPage({ params }: { params: { handle: string } }) {
   const product = await getProduct(params.handle);
-  console.log(product?.tags);
 
   if (!product) return notFound();
 
