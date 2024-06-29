@@ -74,10 +74,10 @@ export default function ConnectForm() {
         {!loading ? 'Send' : <LoadingDots className="bg-black" />}
       </button>
       {messageSuccess ? (
-        <div className="text-htfgreen text-center text-xs brightness-125">
-          ✔️ your message has been sent
+        <div className="text-center text-xs text-htf_green brightness-125">
+          ✔ your message has been sent.
         </div>
-      ) : !messageFail ? (
+      ) : messageFail ? (
         <div className="px-6 text-center text-xs brightness-125">
           x something went wrong. please check all fields and try again. or contact me manually{' '}
           <span className="font-bold text-off_white">connect@herotoall.io</span>

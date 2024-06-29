@@ -42,7 +42,7 @@ export default function SubscribeSection() {
       </p>
       {reveal && (
         <div
-          className={clsx('my-6 w-full border-b-[1px] border-b-neutral-800 px-6 text-center', {
+          className={clsx('my-6 w-full border-b-[1px] border-b-neutral-800 px-2 text-center', {
             'border-b-neutral-100/10': htf
           })}
         >
@@ -51,12 +51,12 @@ export default function SubscribeSection() {
               <input
                 type="email"
                 placeholder="Email"
-                name="Email"
+                name="email"
                 required
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-                className="w-full bg-transparent tracking-widest focus-visible:outline-none"
+                className="w-full bg-transparent tracking-widest placeholder:text-current focus-visible:outline-none"
               />
               <button
                 type="submit"

@@ -7,11 +7,12 @@ const { EMAIL, EMAIL_PASS } = process.env;
 
 export async function sendMail({ emailContent }: { emailContent: ConnectForm }) {
   const transporter = nodemailer.createTransport({
-    host: 'smtp.office365.com',
+    host: 'smtp-legacy.office365.com',
     port: 587,
     secure: false,
     tls: {
-      ciphers: 'SSLv3'
+      ciphers: 'SSLv3',
+      rejectUnauthorized: false
     },
     auth: {
       user: EMAIL,

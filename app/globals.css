@@ -8,15 +8,6 @@
   }
 }
 
-html {
-  overflow: scroll;
-  overflow-x: hidden;
-}
-html::-webkit-scrollbar {
-  width: 0; /* Remove scrollbar space */
-  background: transparent; /* Optional: just make scrollbar invisible */
-}
-
 .carousel {
   overflow-x: scroll;
   scroll-snap-type: x mandatory;

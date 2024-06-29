@@ -46,7 +46,9 @@ export default async function Footer() {
           <p>
             &copy; {currentYear} {copyrightName}. All rights reserved.
           </p>
-          <p>Developed by @?k</p>
+          <Link href="https://askdwe.xyz" target="_blank" className="mt-1">
+            Developed by @?k
+          </Link>
         </div>
       </div>
     </footer>
