@@ -12,7 +12,7 @@ export default function AboutPage() {
             </h1>
             <div className="font-hta text-2xl">
               The only way you can truly help everyone, is to work on yourself The science of a
-              sound mind
+              sound mind.
             </div>
             <p className="text-xs text-htf_green lg:text-lg">528 Hz</p>
           </div>
