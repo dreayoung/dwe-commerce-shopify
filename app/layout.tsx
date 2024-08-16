@@ -1,4 +1,3 @@
-import Navbar from 'components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
 import { Londrina_Solid } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -50,7 +49,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="en" className={`font-extralight ${londria.className} ${HtaFont.variable}`}>
       <MainLayout>
-        {!envVariable && <Navbar />}
         <main>{children}</main>
       </MainLayout>
     </html>
