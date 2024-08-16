@@ -1,4 +1,4 @@
-import LogoSquare from 'components/logo-square';
+// import LogoSquare from 'components/logo-square';
 
 export default function LockPage() {
   return (

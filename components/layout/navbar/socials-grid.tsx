@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AiFillInstagram, AiFillYoutube, AiOutlineTwitter } from 'react-icons/ai';
 import { FaTiktok } from 'react-icons/fa';
-const { SITE_NAME, INSTAGRAM_URL, TIKTOK_URL, YOUTUBE_URL } = process.env;
+const { INSTAGRAM_URL } = process.env;
 
 export default function Socials() {
   const pathname = usePathname();

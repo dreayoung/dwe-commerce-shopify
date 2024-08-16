@@ -2,14 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  AiOutlineInstagram,
-  AiOutlineTwitter,
-  AiFillYoutube,
-  AiOutlineYoutube,
-  AiFillInstagram,
-  AiOutlineArrowRight
-} from 'react-icons/ai';
+import { AiOutlineTwitter, AiFillYoutube } from 'react-icons/ai';
 
 import { FaInstagram, FaTiktok } from 'react-icons/fa';
 

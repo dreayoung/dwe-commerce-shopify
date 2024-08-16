@@ -4,7 +4,7 @@ import { Londrina_Solid } from 'next/font/google';
 import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import './globals.css';
-import MainLayout from './mainLayout';
+import MainLayout from './main-layout';
 
 const HtaFont = localFont({
   src: '../fonts/HtaFont-Regular.ttf',

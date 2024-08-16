@@ -3,7 +3,6 @@ import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { FaInstagram } from 'react-icons/fa';
 import FooterLinks from './footer-links';
 import SubscribeSection from '../customer/footer-sub';
 
