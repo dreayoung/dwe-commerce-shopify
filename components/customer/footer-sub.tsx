@@ -7,7 +7,6 @@ import clsx from 'clsx';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { addCustomer } from './actions';
 import LoadingDots from 'components/loading-dots';
-import { Customer } from 'lib/shopify/types';
 
 export default function SubscribeSection() {
   const path = usePathname();
@@ -15,7 +14,7 @@ export default function SubscribeSection() {
 
   const [reveal, setReveal] = useState(false);
   const [email, setEmail] = useState('');
-  const [addedCustomer, setAddedCustomer] = useState<Customer | null>(null);
+  const [addedCustomer, setAddedCustomer] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 
   const newsletterSub = async (e: any) => {
@@ -24,9 +23,12 @@ export default function SubscribeSection() {
 
     const createdCustomer = await addCustomer(email);
 
+    setEmail('');
     setLoading(false);
     return setAddedCustomer(createdCustomer);
   };
+
+  console.log('added customer', addedCustomer);
 
   return (
     <>
@@ -42,9 +44,12 @@ export default function SubscribeSection() {
       </p>
       {reveal && (
         <div
-          className={clsx('my-6 w-full border-b-[1px] border-b-neutral-800 px-2 text-center', {
-            'border-b-neutral-100/10': htf
-          })}
+          className={clsx(
+            'my-6 w-full border-b-[1px] border-b-neutral-800 px-2 text-center md:w-[80%]',
+            {
+              'border-b-neutral-100/10': htf
+            }
+          )}
         >
           <div className="space-y-2 pb-2">
             <form onSubmit={(e) => newsletterSub(e)} className="relative">
@@ -71,8 +76,12 @@ export default function SubscribeSection() {
 
       {addedCustomer?.id === 'Error adding customer' ? (
         <p className="text-xs text-red-700">Error.</p>
-      ) : addedCustomer?.id.includes('gid') ? (
-        <p className="text-xs text-green-700">✔️ sucessfully added.</p>
+      ) : addedCustomer?.id === 'Customer exists' ? (
+        <p className="rounded-full bg-white/5 p-4 text-xs">You are already subscribed!</p>
+      ) : addedCustomer?.id && addedCustomer.createdAt ? (
+        <p className="rounded-full bg-white/5 p-2 px-4 text-xs text-green-700">
+          sucessfully added.
+        </p>
       ) : null}
     </>
   );

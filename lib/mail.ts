@@ -1,7 +1,7 @@
 'use server';
 
+import { ConnectForm } from '@types';
 import nodemailer from 'nodemailer';
-import type { ConnectForm } from './shopify/types';
 
 const { EMAIL, EMAIL_PASS } = process.env;
 

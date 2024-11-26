@@ -1,9 +1,5 @@
 import Footer from 'components/layout/footer';
-import Hero from 'components/layout/hero';
 import LockPage from 'components/layout/lockpage';
-import { Suspense } from 'react';
-
-export const runtime = 'edge';
 
 export const metadata = {
   description: 'Hero To All',
@@ -12,17 +8,11 @@ export const metadata = {
   }
 };
 
-const envVariable = process.env.LOCKED_SCREEN_PASSW;
-
 export default async function HomePage() {
   return (
-    <>
-      <Suspense>
-        {!envVariable ? <Hero /> : <LockPage />}
-        <Suspense>
-          <Footer />
-        </Suspense>
-      </Suspense>
-    </>
+    <main className="grid h-dvh place-content-center place-items-end gap-y-8 pt-20">
+      <LockPage />
+      <Footer />
+    </main>
   );
 }

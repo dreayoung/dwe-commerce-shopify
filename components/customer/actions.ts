@@ -1,10 +1,18 @@
 'use server';
 
-import { createCustomer } from 'lib/shopify';
+import { createSubCustomer, checkCustomer } from 'lib/square';
 
 export async function addCustomer(email: string) {
   try {
-    const res = await createCustomer(email);
+    const checkExisting = await checkCustomer(email);
+
+    if (checkExisting?.[0]?.id) {
+      return {
+        id: 'Customer exists'
+      };
+    }
+
+    const res = await createSubCustomer(email);
     return res;
   } catch (e) {
     return {
