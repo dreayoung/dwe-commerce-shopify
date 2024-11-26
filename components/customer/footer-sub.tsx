@@ -28,8 +28,6 @@ export default function SubscribeSection() {
     return setAddedCustomer(createdCustomer);
   };
 
-  console.log('added customer', addedCustomer);
-
   return (
     <>
       <p className="py-2 md:w-[80%] md:px-0">
