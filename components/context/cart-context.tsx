@@ -63,6 +63,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
         // Redirect to the Square checkout page
         window.location.href = data.checkoutUrl;
+        setLoading(false);
         // setCheckoutUrl(data.checkoutUrl);
       } else {
         throw new Error('No checkout URL received');
@@ -71,7 +72,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       console.error('Error during checkout:', error);
       alert('There was an error processing your checkout. Please try again.');
     }
-    setLoading(false);
   };
 
   return (

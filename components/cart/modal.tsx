@@ -90,15 +90,7 @@ export default function CartModal() {
 
               {!cart || cart.length === 0 ? (
                 <div className="flex h-full w-full items-center justify-center overflow-hidden">
-                  {!loading ? (
-                    <p className="mt-6 text-center font-hta text-xl uppercase">
-                      Your cart is empty.
-                    </p>
-                  ) : (
-                    <p className="mt-6 text-center font-hta text-xl uppercase">
-                      redirecting to checkout....
-                    </p>
-                  )}
+                  <p className="mt-6 text-center font-hta text-xl uppercase">Your cart is empty.</p>
                 </div>
               ) : (
                 <div className="flex h-full flex-col justify-between overflow-hidden p-1">
