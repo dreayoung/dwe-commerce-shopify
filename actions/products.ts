@@ -1,12 +1,10 @@
 'use server';
 
-import { squareClient, retryWithBackoff } from '../lib/square';
+import squareClient from '../lib/square';
 
 export async function getImage(id: string): Promise<any | null> {
   try {
-    const response = await retryWithBackoff(() =>
-      squareClient.catalogApi.retrieveCatalogObject(id, true)
-    );
+    const response = await squareClient.catalogApi.retrieveCatalogObject(id, true);
 
     const item = response.result.object;
 
@@ -22,11 +20,9 @@ export async function getImage(id: string): Promise<any | null> {
 
 export async function getOptions() {
   try {
-    const response = await retryWithBackoff(() =>
-      squareClient.catalogApi.listCatalog(undefined, 'ITEM_OPTION')
-    );
+    const response = await squareClient.catalogApi.listCatalog(undefined, 'ITEM_OPTION');
 
-    return response.result.objects.map((item: any) => {
+    return response?.result?.objects?.map((item: any) => {
       return {
         id: item.id,
         name: item.itemOptionData.name,
@@ -40,9 +36,7 @@ export async function getOptions() {
 
 export async function getAllProducts() {
   try {
-    const response = await retryWithBackoff(() =>
-      squareClient.catalogApi.listCatalog(undefined, 'ITEM')
-    );
+    const response = await squareClient.catalogApi.listCatalog(undefined, 'ITEM');
 
     const items = await Promise.all(
       response.result.objects

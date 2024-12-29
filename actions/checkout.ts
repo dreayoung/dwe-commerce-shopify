@@ -1,6 +1,6 @@
 'use server';
 
-import { squareClient } from 'lib/square';
+import squareClient from 'lib/square';
 
 export async function generatePaymentLink(lineItems: any[], idempotencyKey: any) {
   try {
