@@ -35,7 +35,7 @@ export default function ConnectForm() {
   };
 
   const inputC =
-    'bg-transparent tracking-widest border-[1px] border-neutral-800 p-4 rounded-lg placeholder:text-neutral-400 text-sm focus-visible:outline-none';
+    'bg-transparent pointer-events-auto tracking-widest border-[1px] border-neutral-800 p-4 rounded-lg placeholder:text-neutral-400 text-sm focus-visible:outline-none';
 
   return (
     <form onSubmit={handleSubmit} className="pointer-events-none mt-14 grid gap-4">

@@ -59,7 +59,7 @@ export default function SubscribeSection() {
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-                className="w-full bg-transparent tracking-widest placeholder:text-current focus-visible:outline-none"
+                className="pointer-events-auto w-full bg-transparent tracking-widest placeholder:text-current focus-visible:outline-none"
               />
               <button
                 type="submit"
