@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import Cart from 'components/cart';

@@ -22,7 +22,7 @@ export async function sendMail({ emailContent }: { emailContent: ConnectForm }) 
 
   try {
     const testResult = await transporter.verify();
-    // console.log('test Result', testResult);
+    console.log('test Result', testResult);
   } catch (error) {
     console.error({ error });
     return;
