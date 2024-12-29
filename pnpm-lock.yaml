@@ -39,11 +39,14 @@ importers:
         specifier: ^5.2.1
         version: 5.2.1(react@18.2.0)
       square:
-        specifier: ^39.0.0
-        version: 39.0.0
+        specifier: ^39.1.1
+        version: 39.1.1
       stream:
         specifier: ^0.0.3
         version: 0.0.3
+      uuid:
+        specifier: ^11.0.3
+        version: 11.0.3
     devDependencies:
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
@@ -107,43 +110,59 @@ packages:
     resolution: {integrity: sha512-+Pb1TVKyrSIEiRKrny0XLWeKn32ecthQlaU21ywx6y//+tm1tJbGIrCmcYt5NSyEfiAMbIKGQAtLCTtPlqvu8w==}
     engines: {node: '>=14.15.0 || >=16.0.0'}
 
-  '@apimatic/axios-client-adapter@0.3.6':
-    resolution: {integrity: sha512-QQqwE/BKhdHlIF3HK3U/s50RFYrCKHYuIwYtBbTkzsT+PKYbuNH16qvTayxVCXShgIxa7IVdIihGo/L9Db5/DQ==}
+  '@apimatic/axios-client-adapter@0.3.8':
+    resolution: {integrity: sha512-nwarzOH9f3O28zRC2HCiP9jLisKIFMDnSFjkFXio/P7X9SOPyTaeTN4K5jiHlpq5O3gChSk26LXiyDIvG1JqVw==}
     engines: {node: '>=14.15.0 || >=16.0.0'}
 
   '@apimatic/convert-to-stream@0.0.2':
     resolution: {integrity: sha512-1DRg17ItExfMYsXwjt6WIjJSCgV5RGg3fHPLgYD44/YmiU+7suWj7YfPKKUqmNcnJ/AvMh4lG1+tHrfOT01zXw==}
     engines: {node: '>=10.4.0'}
 
-  '@apimatic/convert-to-stream@0.1.3':
-    resolution: {integrity: sha512-PzQdEXY0V7CHrJsD0G3YoAZSgVaO5Dweqop0b3S4sB+WdFGkAOiF4Qwl/aZZxsbfOnmEanOAOq+gf+noKQ43eg==}
+  '@apimatic/convert-to-stream@0.1.4':
+    resolution: {integrity: sha512-QlAUUN/NT4IbajpnFw+w+4GAPwuTtPAEUMBGGKX4M2XLuv8QA4Asag6V19gLsnWFdzcu7mwpjGn+O4tsOlArMQ==}
     engines: {node: '>=14.15.0 || >=16.0.0'}
 
   '@apimatic/core-interfaces@0.2.7':
     resolution: {integrity: sha512-ZGvUL9ka1vuyj/zNwShmqaX38nvLS4QcQOtfuPy/WI65HJv+mdMQxWoHTyjvVq/zVs+YRDgN0UXE2MzkqGoDjQ==}
     engines: {node: '>=14.15.0 || >=16.0.0'}
 
-  '@apimatic/core@0.10.15':
-    resolution: {integrity: sha512-y7WvCHfPB5GTjmdAhTYom2q13AmgqzLYB1vO2MDfcvQWB+dLZnnOwqSXdzUWchiBe3y60oAc/M3MNn2hqHKEhQ==}
+  '@apimatic/core-interfaces@0.2.8':
+    resolution: {integrity: sha512-3o9CkUMeRrg8uE1dDqcvh3MOFIOPqdNRmpFEzhJa5oc0IqHHVhCSU21V9jBe0jB1+Zxc9uHWsq55QXFpliFq8Q==}
+    engines: {node: '>=14.15.0 || >=16.0.0'}
+
+  '@apimatic/core@0.10.17':
+    resolution: {integrity: sha512-8AHBm0Y0cjDDtJBgx+TkGXWLWadG+zltMiew7vmrADT8GGhKX/JfMV0R9ae+E1kmnF+C2g/IH/muNx6+HH15pA==}
     engines: {node: '>=14.15.0 || >=16.0.0'}
 
   '@apimatic/file-wrapper@0.3.3':
     resolution: {integrity: sha512-XIyiRb7PtbILJCof5RKJdElLiRakUk9DQRBYqzUjp1H1tM9MjKTnPYvKa9Rkel+o/wJ1RcB/IEwPtYhYWzQtow==}
     engines: {node: '>=14.15.0 || >=16.0.0'}
 
+  '@apimatic/file-wrapper@0.3.4':
+    resolution: {integrity: sha512-XMY2Zh1pMOY1mGoz9axxR5Q5MDhdyArh2BxSfdJkRe76t2CiXdmw/+kPgBiX9QvXJXc0rcsDClqg4WMxamDepw==}
+    engines: {node: '>=14.15.0 || >=16.0.0'}
+
   '@apimatic/http-headers@0.3.3':
     resolution: {integrity: sha512-xfDipaFoYgazLJnaEPeG72TOZOQj1PqhJ8zQgpo4Tsr1D/ggmFyiJnuD7RwSqZXCfiMgcRWN0Xzi2mrk0unhrQ==}
+    engines: {node: '>=14.15.0 || >=16.0.0'}
+
+  '@apimatic/http-headers@0.3.4':
+    resolution: {integrity: sha512-ECKyQt9QaRu8nwFJS50HMKKhs+lO191URDUQ5CRzgtGPudmrrmB35I1lz3oVjXelyoJANog2IEGhx3nqoSYD7Q==}
     engines: {node: '>=14.15.0 || >=16.0.0'}
 
   '@apimatic/http-query@0.3.3':
     resolution: {integrity: sha512-omPc56Bv5o/6QL6rcXfCkZfJ/NFl4yD+vVfotfVYeyb4ewGWCD8pc6v6cSOwID2A06pK2wy41ltjiuSkaQ+QIA==}
     engines: {node: '>=14.15.0 || >=16.0.0'}
 
+  '@apimatic/http-query@0.3.4':
+    resolution: {integrity: sha512-6s5DS7dMq1lEJ+9AsTIiMyTXGX9xX5vOnduNSw8csSaQJ5lwMP4O4QzHFT3IFrvctKp/pfS75P0HYGV+9ciltg==}
+    engines: {node: '>=14.15.0 || >=16.0.0'}
+
   '@apimatic/json-bigint@1.2.0':
     resolution: {integrity: sha512-+bmVzYMdZu0Ya5L+my4FXFUih54OvQA/qlZsFOYdOoostyUuB27UDrVWQs/WVCmS0ADdo5vTU0eeTrrBkHoySw==}
 
-  '@apimatic/schema@0.7.13':
-    resolution: {integrity: sha512-nGeOFuCG8EhNgbWkJ2Ij6PvX82Rc5WPOWEewweHsKXBPuGy1MhtQBGQjp0xjQNf64jD644Td1lKttWt78AU4rA==}
+  '@apimatic/schema@0.7.15':
+    resolution: {integrity: sha512-wJVQPYYJwG9TuMJLvddH7VJ7x5tRK3ycZvcsheeEL9xD2BmTIV5w5ni14gjvmLIbivRsHmMcUkCVhIEssjg+Zg==}
     engines: {node: '>=14.15.0 || >=16.0.0'}
 
   '@babel/code-frame@7.24.7':
@@ -498,8 +517,8 @@ packages:
     resolution: {integrity: sha512-QbUdXJVTpvUTHU7871ppZkdOLBeGUKBQWHkHrvN2V9IQWGMt61zf3B45BtzjxEJzYuj0JBjBZP/hmYS/R9pmAw==}
     engines: {node: '>=4'}
 
-  axios@1.7.8:
-    resolution: {integrity: sha512-Uu0wb7KNqK2t5K+YQyVCLM76prD5sRFjKHbJYCP1J7JFGEQ6nN7HWn9+04LAeiJ3ji54lgS/gZCH1oxyrf1SPw==}
+  axios@1.7.9:
+    resolution: {integrity: sha512-LhLcE7Hbiryz8oMDdDptSrWowmB4Bl6RCt6sIJKpRB4XtVf0iEgewX3au/pJqm+Py1kCASkb/FFKjxQaLtxJvw==}
 
   axobject-query@3.1.1:
     resolution: {integrity: sha512-goKlv8DZrK9hUh975fnHzhNIO4jUnFCfv/dszV5VwUGDFjI6vQ2VwoyjYjYNEbBE8AH87TduWP5uyDR1D+Iteg==}
@@ -956,10 +975,6 @@ packages:
   foreground-child@3.2.1:
     resolution: {integrity: sha512-PXUUyLqrR2XCWICfv6ukppP96sdFwWbNEnfEMt7jNsISjMsvaLNinAHNDYyvkyU+SZG2BTSbT5NjG+vZslfGTA==}
     engines: {node: '>=14'}
-
-  form-data@3.0.2:
-    resolution: {integrity: sha512-sJe+TQb2vIaIyO783qN6BlMYWMw3WBOHA1Ay2qxsnjuafEOQFJ2JakedOQirT6D5XPRxDvS7AHYyem9fTpb4LQ==}
-    engines: {node: '>= 6'}
 
   form-data@4.0.1:
     resolution: {integrity: sha512-tzN8e4TX8+kkxGPK8D5u0FNmjPUjw3lwC9lSLxxoB/+GtsJG91CO8bSWy73APlgAZzZbXEYZJuxjkHH2w+Ezhw==}
@@ -1906,8 +1921,8 @@ packages:
   spdx-license-ids@3.0.18:
     resolution: {integrity: sha512-xxRs31BqRYHwiMzudOrpSiHtZ8i/GeionCBDSilhYRj+9gIcI8wCZTlXZKu9vZIVqViP3dcp9qE5G6AlIaD+TQ==}
 
-  square@39.0.0:
-    resolution: {integrity: sha512-78KN1xg0Cr74u3ejX2sDhdCQYrPVU+sgv87ZoTRk+r6AdCeGARapZU/2GtgLJqp67GnN8jCOS4QpkyC9S8Roew==}
+  square@39.1.1:
+    resolution: {integrity: sha512-75b/UWbXl6xk1cG0jEWeWTRHAbDseF78kdPa3N4Cm57KMkDwOS2qGSLfooyqMDmFEKhQAfTA0WSiMkw40hQ/2A==}
     engines: {node: '>=14.17.0'}
 
   stop-iteration-iterator@1.0.0:
@@ -2053,6 +2068,9 @@ packages:
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
+  tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -2107,6 +2125,10 @@ packages:
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+
+  uuid@11.0.3:
+    resolution: {integrity: sha512-d0z310fCWv5dJwnX1Y/MncBAqGMKEzlBb1AOf7z9K8ALnd0utBX/msg/fA0+sbyN1ihbMsLhrBlnl1ak7Wa0rg==}
+    hasBin: true
 
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
@@ -2179,70 +2201,90 @@ snapshots:
       '@apimatic/http-query': 0.3.3
       tslib: 2.6.3
 
-  '@apimatic/axios-client-adapter@0.3.6':
+  '@apimatic/axios-client-adapter@0.3.8':
     dependencies:
-      '@apimatic/convert-to-stream': 0.1.3
-      '@apimatic/core-interfaces': 0.2.7
-      '@apimatic/file-wrapper': 0.3.3
-      '@apimatic/http-headers': 0.3.3
-      '@apimatic/http-query': 0.3.3
+      '@apimatic/convert-to-stream': 0.1.4
+      '@apimatic/core-interfaces': 0.2.8
+      '@apimatic/file-wrapper': 0.3.4
+      '@apimatic/http-headers': 0.3.4
+      '@apimatic/http-query': 0.3.4
       '@apimatic/json-bigint': 1.2.0
-      '@apimatic/schema': 0.7.13
-      axios: 1.7.8
+      '@apimatic/schema': 0.7.15
+      axios: 1.7.9
       detect-browser: 5.3.0
       detect-node: 2.1.0
-      form-data: 3.0.2
+      form-data: 4.0.1
       lodash.flatmap: 4.5.0
       tiny-warning: 1.0.3
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - debug
 
   '@apimatic/convert-to-stream@0.0.2': {}
 
-  '@apimatic/convert-to-stream@0.1.3': {}
+  '@apimatic/convert-to-stream@0.1.4':
+    dependencies:
+      tslib: 2.8.1
 
   '@apimatic/core-interfaces@0.2.7':
     dependencies:
       '@apimatic/file-wrapper': 0.3.3
       tslib: 2.6.3
 
-  '@apimatic/core@0.10.15':
+  '@apimatic/core-interfaces@0.2.8':
+    dependencies:
+      '@apimatic/file-wrapper': 0.3.4
+      tslib: 2.8.1
+
+  '@apimatic/core@0.10.17':
     dependencies:
       '@apimatic/convert-to-stream': 0.0.2
-      '@apimatic/core-interfaces': 0.2.7
-      '@apimatic/file-wrapper': 0.3.3
-      '@apimatic/http-headers': 0.3.3
-      '@apimatic/http-query': 0.3.3
+      '@apimatic/core-interfaces': 0.2.8
+      '@apimatic/file-wrapper': 0.3.4
+      '@apimatic/http-headers': 0.3.4
+      '@apimatic/http-query': 0.3.4
       '@apimatic/json-bigint': 1.2.0
-      '@apimatic/schema': 0.7.13
+      '@apimatic/schema': 0.7.15
       detect-browser: 5.3.0
       detect-node: 2.1.0
-      form-data: 3.0.2
+      form-data: 4.0.1
       json-ptr: 3.1.1
       lodash.defaultsdeep: 4.6.1
       lodash.flatmap: 4.5.0
       tiny-warning: 1.0.3
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@apimatic/file-wrapper@0.3.3':
     dependencies:
       tslib: 2.6.3
 
+  '@apimatic/file-wrapper@0.3.4':
+    dependencies:
+      tslib: 2.8.1
+
   '@apimatic/http-headers@0.3.3':
     dependencies:
       tslib: 2.6.3
+
+  '@apimatic/http-headers@0.3.4':
+    dependencies:
+      tslib: 2.8.1
 
   '@apimatic/http-query@0.3.3':
     dependencies:
       '@apimatic/file-wrapper': 0.3.3
       tslib: 2.6.3
 
+  '@apimatic/http-query@0.3.4':
+    dependencies:
+      '@apimatic/file-wrapper': 0.3.4
+      tslib: 2.8.1
+
   '@apimatic/json-bigint@1.2.0': {}
 
-  '@apimatic/schema@0.7.13':
+  '@apimatic/schema@0.7.15':
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@babel/code-frame@7.24.7':
     dependencies:
@@ -2609,7 +2651,7 @@ snapshots:
 
   axe-core@4.9.1: {}
 
-  axios@1.7.8:
+  axios@1.7.9:
     dependencies:
       follow-redirects: 1.15.9
       form-data: 4.0.1
@@ -3247,12 +3289,6 @@ snapshots:
     dependencies:
       cross-spawn: 7.0.3
       signal-exit: 4.1.0
-
-  form-data@3.0.2:
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.8
-      mime-types: 2.1.35
 
   form-data@4.0.1:
     dependencies:
@@ -4135,13 +4171,13 @@ snapshots:
 
   spdx-license-ids@3.0.18: {}
 
-  square@39.0.0:
+  square@39.1.1:
     dependencies:
       '@apimatic/authentication-adapters': 0.5.5
-      '@apimatic/axios-client-adapter': 0.3.6
-      '@apimatic/core': 0.10.15
+      '@apimatic/axios-client-adapter': 0.3.8
+      '@apimatic/core': 0.10.17
       '@apimatic/json-bigint': 1.2.0
-      '@apimatic/schema': 0.7.13
+      '@apimatic/schema': 0.7.15
       '@types/node': 14.18.63
     transitivePeerDependencies:
       - debug
@@ -4323,6 +4359,8 @@ snapshots:
 
   tslib@2.6.3: {}
 
+  tslib@2.8.1: {}
+
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
@@ -4387,6 +4425,8 @@ snapshots:
       punycode: 2.3.1
 
   util-deprecate@1.0.2: {}
+
+  uuid@11.0.3: {}
 
   validate-npm-package-license@3.0.4:
     dependencies:
