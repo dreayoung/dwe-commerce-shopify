@@ -1,6 +1,6 @@
 'use server';
 
-import squareClient from '../lib/square';
+import { squareClient } from '../lib/square';
 
 export async function createSubCustomer(emailAddress: string) {
   const response = await squareClient.customersApi.createCustomer({
