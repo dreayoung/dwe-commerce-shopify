@@ -38,7 +38,7 @@ export default function ConnectForm() {
     'bg-transparent tracking-widest border-[1px] border-neutral-800 p-4 rounded-lg placeholder:text-neutral-400 text-sm focus-visible:outline-none';
 
   return (
-    <form onSubmit={handleSubmit} className="mt-14 grid gap-4">
+    <form onSubmit={handleSubmit} className="pointer-events-none mt-14 grid gap-4">
       <div className="flex flex-col items-center gap-4 md:flex-row">
         <input
           required

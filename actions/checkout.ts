@@ -15,7 +15,7 @@ export async function generatePaymentLink(lineItems: any[], idempotencyKey: any)
       },
       checkoutOptions: {
         allowTipping: false,
-        redirectUrl: 'https://www.herotoall.com/',
+        // redirectUrl: 'https://www.herotoall.com/',
         askForShippingAddress: true,
         acceptedPaymentMethods: {
           applePay: true,

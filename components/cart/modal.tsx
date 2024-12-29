@@ -57,7 +57,10 @@ export default function CartModal() {
             leaveFrom="opacity-100 backdrop-blur-[.5px]"
             leaveTo="opacity-0 backdrop-blur-none"
           >
-            <div className="fixed inset-0" aria-hidden="true" />
+            <div
+              className={clsx('fixed inset-0 bg-black/75', { 'bg-htf_bg/70': htf })}
+              aria-hidden="true"
+            />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
@@ -151,6 +154,7 @@ export default function CartModal() {
                                 ) : (
                                   <p className="text-sm">OS</p>
                                 )}
+                                <span className="text-sm">q:{item.quantity}</span>
                               </div>
                             </Link>
                             <div className="flex h-16 flex-col justify-between">

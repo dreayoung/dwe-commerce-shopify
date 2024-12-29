@@ -49,7 +49,7 @@ export default function SubscribeSection() {
             }
           )}
         >
-          <div className="space-y-2 pb-2">
+          <div className="pointer-events-none space-y-2 pb-2">
             <form onSubmit={(e) => newsletterSub(e)} className="relative">
               <input
                 type="email"
