@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+// import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { Gallery } from 'components/product/gallery';
@@ -6,41 +6,41 @@ import { ProductDescription } from 'components/product/product-description';
 
 import { getProduct } from 'actions/products';
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
-export async function generateMetadata({
-  params
-}: {
-  params: { handle: string };
-}): Promise<Metadata> {
-  const product = await getProduct(params.handle);
+// export async function generateMetadata({
+//   params
+// }: {
+//   params: { handle: string };
+// }): Promise<Metadata> {
+//   const product = await getProduct(params.handle);
 
-  if (!product) return notFound();
+//   if (!product) return notFound();
 
-  const { url } = product.imageUrls[0] || {};
+//   const { url } = product.imageUrls[0] || {};
 
-  return {
-    title: product.name,
-    description: product.description,
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true
-      }
-    },
-    openGraph: url
-      ? {
-          images: [
-            {
-              url
-            }
-          ]
-        }
-      : null
-  };
-}
+//   return {
+//     title: product.name,
+//     description: product.description,
+//     robots: {
+//       index: true,
+//       follow: true,
+//       googleBot: {
+//         index: true,
+//         follow: true
+//       }
+//     },
+//     openGraph: url
+//       ? {
+//           images: [
+//             {
+//               url
+//             }
+//           ]
+//         }
+//       : null
+//   };
+// }
 
 export default async function CoreProductPage({ params }: { params: { handle: string } }) {
   const product = await getProduct(params.handle);
