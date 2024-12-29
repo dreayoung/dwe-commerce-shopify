@@ -74,7 +74,6 @@ export function AddToCart({
   availableForSale: boolean;
 }) {
   const { addToCart } = useCart();
-  // const [message, formAction] = useFormState(addToCart, null);
   const searchParams = useSearchParams();
 
   const defaultVariantId = variants?.length === 1 ? variants[0]?.id : undefined;
@@ -97,14 +96,9 @@ export function AddToCart({
 
   // console.log('selected', selected);
 
-  // const actionWithVariant = formAction.bind(null, selected);
-
   return (
     <form action={() => addToCart(selected)}>
       <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
-      {/* <p aria-live="polite" className="sr-only" role="status">
-        {message}
-      </p> */}
     </form>
   );
 }

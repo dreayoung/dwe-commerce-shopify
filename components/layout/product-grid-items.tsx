@@ -19,11 +19,11 @@ export default function ProductGridItems({
       {products.map((product: any) => (
         <Grid.Item key={product.id} className="animate-fadeIn">
           <Link className="relative h-full w-full" href={`/${collection}/${product.id}`}>
-            {/* {!product.availableForSale ? (
-              <span className="absolute inset-2 z-50 h-fit w-fit rounded-full bg-zinc-900 p-1 px-3 text-xs text-zinc-100">
+            {!product.availableForSale ? (
+              <span className="absolute inset-2 z-50 h-fit w-fit rounded-full bg-zinc-900 p-2 text-xs text-zinc-100">
                 Sold Out
               </span>
-            ) : null} */}
+            ) : null}
             <GridTileImage alt={product.name} src={product.previewImg} width={350} height={350} />
             <Label title={product.name} amount={product.price} currencyCode="USD" />
           </Link>

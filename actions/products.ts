@@ -44,13 +44,16 @@ export async function getAllProducts() {
         .map(async (item: any) => {
           const previewImg = await getImage(item.itemData?.imageIds[0]);
 
+          const inStock = item.itemData.variations.every((prod: any) => !prod.availableForSale);
+
           return {
             id: item.id,
             name: item.itemData.name,
             description: item.itemData.description,
             price: Number(item.itemData.variations?.[0].itemVariationData.priceMoney.amount) / 100,
             previewImg,
-            isArchived: item.itemData.isArchived
+            isArchived: item.itemData.isArchived,
+            availableForSale: inStock
           };
         }) || []
     );
