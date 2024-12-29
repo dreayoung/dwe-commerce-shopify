@@ -13,7 +13,7 @@ import { DeleteItemButton } from './delete-item-button';
 import OpenCart from './open-cart';
 
 export default function CartModal() {
-  const { cart, handleCheckout } = useCart();
+  const { cart, handleCheckout, loading } = useCart();
   const path = usePathname();
   const htf = path.includes('herotofew');
 
@@ -86,7 +86,15 @@ export default function CartModal() {
 
               {!cart || cart.length === 0 ? (
                 <div className="flex h-full w-full items-center justify-center overflow-hidden">
-                  <p className="mt-6 text-center font-hta text-xl uppercase">Your cart is empty.</p>
+                  {!loading ? (
+                    <p className="mt-6 text-center font-hta text-xl uppercase">
+                      Your cart is empty.
+                    </p>
+                  ) : (
+                    <p className="mt-6 text-center font-hta text-xl uppercase">
+                      redirecting to checkout....
+                    </p>
+                  )}
                 </div>
               ) : (
                 <div className="flex h-full flex-col justify-between overflow-hidden p-1">
@@ -140,7 +148,9 @@ export default function CartModal() {
                                 </span>
                                 {item.variationName !== undefined ? (
                                   <p className="text-sm">{item.variationName}</p>
-                                ) : null}
+                                ) : (
+                                  <p className="text-sm">OS</p>
+                                )}
                               </div>
                             </Link>
                             <div className="flex h-16 flex-col justify-between">
@@ -170,10 +180,10 @@ export default function CartModal() {
                     })}
                   </ul>
                   <div className="py-4 text-sm">
-                    <div className={clsx(checkoutBorder, { 'border-neutral-100/10': htf })}>
+                    {/* <div className={clsx(checkoutBorder, { 'border-neutral-100/10': htf })}>
                       <p>Taxes</p>
                       <p className="text-right">included.</p>
-                    </div>
+                    </div> */}
                     <div className={clsx(checkoutBorder, { 'border-neutral-100/10': htf })}>
                       <p>Shipping</p>
                       <p className="text-right">Calculated at checkout</p>
