@@ -1,6 +1,4 @@
 import ConnectForm from 'components/connect/send-message';
-import Footer from 'components/layout/footer';
-import { Suspense } from 'react';
 
 export default function ConnectPage() {
   return (
@@ -12,9 +10,6 @@ export default function ConnectPage() {
           <ConnectForm />
         </div>
       </div>
-      <Suspense>
-        <Footer />
-      </Suspense>
     </>
   );
 }
