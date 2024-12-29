@@ -1,6 +1,6 @@
 'use server';
 
-import { createSubCustomer, checkCustomer } from 'lib/square';
+import { createSubCustomer, checkCustomer } from 'actions/customers';
 
 export async function addCustomer(email: string) {
   try {

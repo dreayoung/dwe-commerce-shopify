@@ -3,7 +3,11 @@ import { Londrina_Solid } from 'next/font/google';
 import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import './globals.css';
+
 import MainLayout from './main-layout';
+import Footer from 'components/layout/footer';
+import Navbar from 'components/layout/navbar/index';
+import { CartProvider } from 'components/context/cartContext';
 
 const HtaFont = localFont({
   src: '../fonts/HtaFont-Regular.ttf',
@@ -47,7 +51,11 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="en" className={`font-extralight ${londria.className} ${HtaFont.variable}`}>
       <MainLayout>
-        <main>{children}</main>
+        <CartProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </CartProvider>
       </MainLayout>
     </html>
   );

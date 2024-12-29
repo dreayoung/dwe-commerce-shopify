@@ -10,7 +10,7 @@ export default function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="mx-auto grid content-end gap-4 pb-10 text-sm">
+    <footer className="mx-auto mt-32 grid content-end gap-4 pb-10 text-sm">
       <div className="p-6 md:px-20">
         <div className="mx-auto flex w-full max-w-2xl flex-col items-center justify-center gap-4 rounded-lg border border-neutral-100/10 bg-transparent/20 p-12 shadow-sm">
           <LogoSquare size="sm" />

@@ -1,5 +1,5 @@
 import Footer from 'components/layout/footer';
-import LockPage from 'components/layout/lockpage';
+import Hero from 'components/layout/hero';
 
 export const metadata = {
   description: 'Hero To All',
@@ -9,10 +9,5 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  return (
-    <main className="grid h-dvh place-content-center place-items-end gap-y-8 pt-20">
-      <LockPage />
-      <Footer />
-    </main>
-  );
+  return <Hero />;
 }
