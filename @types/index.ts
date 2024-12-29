@@ -51,7 +51,7 @@ export type CartContextType = {
   addToCart: (selected: CartItem) => void;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
-  checkoutUrl: string;
+  checkoutUrl?: string;
   bagOpen: boolean;
   setBagOpen: Dispatch<SetStateAction<boolean>>;
   handleCheckout: () => void;

@@ -2,9 +2,8 @@
 
 import { Dialog, Transition } from '@headlessui/react';
 import clsx from 'clsx';
-import { useCart } from '../context/cartContext';
+import { useCart } from '../context/cart-context';
 import Price from 'components/price';
-import { createUrl } from 'lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -14,7 +13,7 @@ import { DeleteItemButton } from './delete-item-button';
 import OpenCart from './open-cart';
 
 export default function CartModal() {
-  const { cart, checkoutUrl, handleCheckout } = useCart();
+  const { cart, handleCheckout } = useCart();
   const path = usePathname();
   const htf = path.includes('herotofew');
 

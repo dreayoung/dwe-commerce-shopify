@@ -7,7 +7,7 @@ import './globals.css';
 import MainLayout from './main-layout';
 import Footer from 'components/layout/footer';
 import Navbar from 'components/layout/navbar/index';
-import { CartProvider } from 'components/context/cartContext';
+import { CartProvider } from 'components/context/cart-context';
 
 const HtaFont = localFont({
   src: '../fonts/HtaFont-Regular.ttf',

@@ -11,7 +11,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [cart, setCart] = useState<CartItem[]>([]);
   const [bagOpen, setBagOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [checkoutUrl, setCheckoutUrl] = useState('');
 
   useEffect(() => {
     const savedCart = localStorage.getItem('cart');
@@ -81,7 +80,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         addToCart,
         removeFromCart,
         clearCart,
-        checkoutUrl,
         bagOpen,
         setBagOpen,
         handleCheckout,

@@ -2,9 +2,9 @@
 
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import { useCart } from '../context/cartContext';
+import { useCart } from '../context/cart-context';
 import LoadingDots from 'components/loading-dots';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 import { CartItem } from '@types';
 
 function SubmitButton() {

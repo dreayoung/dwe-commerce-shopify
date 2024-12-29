@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+// import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 
-import Footer from 'components/layout/footer';
+// import Footer from 'components/layout/footer';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 

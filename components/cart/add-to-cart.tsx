@@ -6,8 +6,8 @@ import clsx from 'clsx';
 import LoadingDots from 'components/loading-dots';
 import { CartItem, ProductVariant } from '../../@types';
 import { useSearchParams } from 'next/navigation';
-import { useFormState, useFormStatus } from 'react-dom';
-import { useCart } from '../context/cartContext';
+import { useFormStatus } from 'react-dom';
+import { useCart } from '../context/cart-context';
 
 function SubmitButton({
   availableForSale,
