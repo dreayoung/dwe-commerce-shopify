@@ -71,6 +71,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       console.error('Error during checkout:', error);
       alert('There was an error processing your checkout. Please try again.');
     }
+    setLoading(false);
   };
 
   return (

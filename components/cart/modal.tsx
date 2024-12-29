@@ -11,6 +11,7 @@ import { Fragment, useEffect, useRef, useState } from 'react';
 import CloseCart from './close-cart';
 import { DeleteItemButton } from './delete-item-button';
 import OpenCart from './open-cart';
+import LoadingDots from 'components/loading-dots';
 
 export default function CartModal() {
   const { cart, handleCheckout, loading } = useCart();
@@ -201,7 +202,7 @@ export default function CartModal() {
                     onClick={handleCheckout}
                     className="block w-full rounded-full bg-white p-3 text-center text-sm font-medium text-black opacity-90 hover:opacity-100"
                   >
-                    Proceed to Checkout
+                    {!loading ? 'Proceed to Checkout' : <LoadingDots className="bg-black" />}
                   </button>
                 </div>
               )}
