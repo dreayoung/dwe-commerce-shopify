@@ -70,9 +70,9 @@ export default function CartModal() {
           >
             <Dialog.Panel
               className={clsx(
-                'fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-800 bg-black p-6 backdrop-blur-xl md:w-[390px]',
+                'fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-black bg-black p-6 backdrop-blur-xl md:w-[390px]',
                 {
-                  'border-neutral-100/10 bg-htf_bg': htf
+                  'border-htf_bg bg-htf_bg': htf
                 }
               )}
             >
