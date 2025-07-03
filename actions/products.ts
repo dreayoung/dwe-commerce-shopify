@@ -37,6 +37,18 @@ export async function getOptions() {
 export async function getAllProducts() {
   try {
     const response = await squareClient.catalogApi.listCatalog(undefined, 'ITEM');
+    const itemsRaw = response.result.objects?.filter((obj: any) => obj.type === 'ITEM') || [];
+
+    // Gather all variation IDs
+    const allVariationIds = itemsRaw.flatMap((item: any) =>
+      item.itemData.variations.map((v: any) => v.id)
+    );
+
+    // Fetch inventory counts for all variations
+    const inventoryResponse = await squareClient.inventoryApi.batchRetrieveInventoryCounts({
+      catalogObjectIds: allVariationIds
+    });
+    const inventoryCounts = inventoryResponse.result.counts || [];
 
     const items = await Promise.all(
       response.result.objects
@@ -44,7 +56,13 @@ export async function getAllProducts() {
         .map(async (item: any) => {
           const previewImg = await getImage(item.itemData?.imageIds[0]);
 
-          const inStock = item.itemData.variations.some((prod: any) => prod.availableForSale);
+          // Check if any variation has quantity > 0
+          const inStock = item.itemData.variations.some((variation: any) => {
+            const inventory = inventoryCounts.find(
+              (count: any) => count.catalogObjectId === variation.id
+            );
+            return inventory && Number(inventory.quantity) > 0;
+          });
 
           return {
             id: item.id,
