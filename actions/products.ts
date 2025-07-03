@@ -44,7 +44,7 @@ export async function getAllProducts() {
         .map(async (item: any) => {
           const previewImg = await getImage(item.itemData?.imageIds[0]);
 
-          const inStock = item.itemData.variations.every((prod: any) => !prod.availableForSale);
+          const inStock = item.itemData.variations.some((prod: any) => prod.availableForSale);
 
           return {
             id: item.id,

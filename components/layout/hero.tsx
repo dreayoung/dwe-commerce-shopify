@@ -1,13 +1,7 @@
 import Image from 'next/image';
-
-import img1 from 'public/images/1.JPG.jpg';
-import img2 from 'public/images/2.JPG.jpg';
-import img3 from 'public/images/3.JPG.jpg';
-import img4 from 'public/images/4.JPG.jpg';
-import img5 from 'public/images/5.JPG.jpg';
-import img6 from 'public/images/6.JPG.jpg';
-import img7 from 'public/images/7.JPG.jpg';
-import img8 from 'public/images/8.JPG.jpg';
+import img1 from 'public/images/1.png';
+import img2 from 'public/images/2.png';
+import img3 from 'public/images/3.png';
 
 export default function Hero() {
   return (
@@ -23,7 +17,7 @@ export default function Hero() {
       </div>
       <div className="px-4 md:px-20">
         <div className="carousel mx-auto flex w-full space-x-4 rounded-2xl bg-neutral-800/25 p-4">
-          {[img1, img2, img3, img4, img5, img6, img7, img8].map((img, x) => {
+          {[img1, img2, img3].map((img, x) => {
             return (
               <div
                 className="relative box-content flex aspect-square h-[30rem] w-80 flex-none snap-center md:h-[38rem] md:w-[28rem]"
@@ -33,7 +27,6 @@ export default function Hero() {
                   src={img}
                   alt="szn pictures"
                   className="h-full w-full rounded-2xl object-cover"
-                  // priority={x > 3 ? false : true}
                 />
               </div>
             );
