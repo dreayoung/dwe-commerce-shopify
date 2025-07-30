@@ -43,7 +43,7 @@ export default function SubscribeSection() {
       {reveal && (
         <div
           className={clsx(
-            'my-6 w-full border-b-[1px] border-b-neutral-800 px-2 text-center md:w-[80%]',
+            'my-6 w-full border-b-[1px] border-b-neutral-800 px-2 text-center md:w-[80.5%]',
             {
               'border-b-neutral-100/10': htf
             }
