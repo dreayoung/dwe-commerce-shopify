@@ -1,7 +1,6 @@
 import { HIDDEN_PRODUCT_TAG, SHOPIFY_GRAPHQL_API_ENDPOINT, TAGS } from 'lib/constants';
 import { isShopifyError } from 'lib/type-guards';
 import { ensureStartsWith } from 'lib/utils';
-import { revalidateTag } from 'next/cache';
 import { headers } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import {
@@ -52,6 +51,7 @@ import {
   ShopifyRemoveFromCartOperation,
   ShopifyUpdateCartOperation
 } from './types';
+import { revalidateTag } from 'next/cache';
 
 const domain = process.env.SHOPIFY_STORE_DOMAIN
   ? ensureStartsWith(process.env.SHOPIFY_STORE_DOMAIN, 'https://')
@@ -86,6 +86,8 @@ export async function shopifyFetch<T>({
         ...(query && { query }),
         ...(variables && { variables })
       }),
+      // Next.js 16 handles 'force-cache' very efficiently with
+      // the new internal Deduplication layer
       cache,
       ...(tags && { next: { tags } })
     });
@@ -441,32 +443,46 @@ export async function getProducts({
 
 // This is called from `app/api/revalidate.ts` so providers can control revalidation logic.
 export async function revalidate(req: NextRequest): Promise<NextResponse> {
-  // We always need to respond with a 200 status code to Shopify,
-  // otherwise it will continue to retry the request.
   const collectionWebhooks = ['collections/create', 'collections/delete', 'collections/update'];
   const productWebhooks = ['products/create', 'products/delete', 'products/update'];
-  const topic = headers().get('x-shopify-topic') || 'unknown';
-  const secret = req.nextUrl.searchParams.get('secret');
+
+  // Await headers for Next.js 16 compatibility
+  const headerList = await headers();
+  const topic = headerList.get('x-shopify-topic') || 'unknown';
+
+  // Await searchParams from the URL
+  const { searchParams } = new URL(req.url);
+  const secret = searchParams.get('secret');
+
+  // 1. Security Check
+  if (!secret || secret !== process.env.SHOPIFY_REVALIDATION_SECRET) {
+    console.error('Invalid revalidation secret.');
+    return NextResponse.json({ status: 401, message: 'Invalid secret' });
+  }
+
+  // 2. Topic Check
   const isCollectionUpdate = collectionWebhooks.includes(topic);
   const isProductUpdate = productWebhooks.includes(topic);
 
-  if (!secret || secret !== process.env.SHOPIFY_REVALIDATION_SECRET) {
-    console.error('Invalid revalidation secret.');
-    return NextResponse.json({ status: 200 });
-  }
-
   if (!isCollectionUpdate && !isProductUpdate) {
-    // We don't need to revalidate anything for any other topics.
-    return NextResponse.json({ status: 200 });
+    // Return early if the topic isn't one we care about
+    return NextResponse.json({ status: 200, message: 'Topic ignored' });
   }
 
+  // 3. Perform Revalidation
   if (isCollectionUpdate) {
-    revalidateTag(TAGS.collections);
+    revalidateTag(TAGS.collections as string, 'default');
   }
 
   if (isProductUpdate) {
-    revalidateTag(TAGS.products);
+    revalidateTag(TAGS.products as string, 'default');
   }
 
-  return NextResponse.json({ status: 200, revalidated: true, now: Date.now() });
+  // 4. THE FIX: Final return statement to satisfy TypeScript
+  return NextResponse.json({
+    status: 200,
+    revalidated: true,
+    now: Date.now(),
+    topic
+  });
 }

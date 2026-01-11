@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
-  eslint: {
-    // Disabling on production builds because we're running checks on PRs via GitHub Actions.
-    ignoreDuringBuilds: true
-  },
+const nextConfig = {
+  reactCompiler: true,
+
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -14,6 +12,7 @@ module.exports = {
       }
     ]
   },
+
   async redirects() {
     return [
       {
@@ -22,5 +21,13 @@ module.exports = {
         permanent: true
       }
     ];
+  },
+
+  logging: {
+    fetches: {
+      fullUrl: true
+    }
   }
 };
+
+export default nextConfig;

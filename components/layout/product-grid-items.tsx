@@ -13,15 +13,13 @@ export default function ProductGridItems({
   products: Product[];
   collection: string;
 }) {
-  // console.log('products', products);
-
   return (
     <>
       {products.map((product) => (
         <Grid.Item key={product.handle} className="animate-fadeIn">
           <Link className="relative h-full w-full" href={`/${collection}/${product.handle}`}>
             {!product.availableForSale ? (
-              <span className="absolute inset-2 z-50 h-fit w-fit rounded-full bg-zinc-900 p-1 px-3 text-xs text-zinc-100">
+              <span className="absolute inset-2 z-50 h-fit w-fit rounded-full border-black bg-black/65 p-1 px-2 text-[8.5px] text-zinc-100 backdrop-blur-xl">
                 Sold Out
               </span>
             ) : null}

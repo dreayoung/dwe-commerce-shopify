@@ -1,22 +1,18 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { GridTileImage } from 'components/grid/tile';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
-import { getProduct, getProductRecommendations } from 'lib/shopify';
+import { getProduct } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
-import Link from 'next/link';
-
-export const runtime = 'edge';
 
 export async function generateMetadata({
   params
 }: {
-  params: { handle: string };
+  params: Promise<{ handle: string }>;
 }): Promise<Metadata> {
-  const product = await getProduct(params.handle);
+  const product = await getProduct((await params).handle);
 
   if (!product) return notFound();
 
@@ -49,8 +45,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function CoreProductPage({ params }: { params: { handle: string } }) {
-  const product = await getProduct(params.handle);
+export default async function CoreProductPage({ params }: { params: Promise<{ handle: string }> }) {
+  const product = await getProduct((await params).handle);
 
   if (!product) return notFound();
 

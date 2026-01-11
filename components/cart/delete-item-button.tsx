@@ -5,23 +5,19 @@ import clsx from 'clsx';
 import { removeItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import type { CartItem } from 'lib/shopify/types';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react'; // Switched to React 19 hook
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
-
+function SubmitButton({ pending }: { pending: boolean }) {
   return (
     <button
       type="submit"
-      onClick={(e: React.FormEvent<HTMLButtonElement>) => {
-        if (pending) e.preventDefault();
-      }}
       aria-label="Remove cart item"
       aria-disabled={pending}
+      disabled={pending}
       className={clsx(
         'ease flex h-[17px] w-[17px] items-center justify-center rounded-full bg-neutral-500 transition-all duration-200',
         {
-          'cursor-not-allowed px-0': pending
+          'cursor-not-allowed px-0 opacity-50': pending
         }
       )}
     >
@@ -35,13 +31,16 @@ function SubmitButton() {
 }
 
 export function DeleteItemButton({ item }: { item: CartItem }) {
-  const [message, formAction] = useFormState(removeItem, null);
+  // 1. useActionState gives us the pending state directly as the 3rd index
+  const [message, formAction, isPending] = useActionState(removeItem, null);
+
   const itemId = item.id;
+  // 2. Bind the item ID to the action
   const actionWithVariant = formAction.bind(null, itemId);
 
   return (
     <form action={actionWithVariant}>
-      <SubmitButton />
+      <SubmitButton pending={isPending} />
       <p aria-live="polite" className="sr-only" role="status">
         {message}
       </p>

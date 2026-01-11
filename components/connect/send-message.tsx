@@ -2,50 +2,31 @@
 
 import LoadingDots from 'components/loading-dots';
 import { sendMail } from 'lib/mail';
-import { useState } from 'react';
+import { useActionState, useEffect, useRef } from 'react';
 
 export default function ConnectForm() {
-  const [messageSuccess, setMessageSuccess] = useState(false);
-  const [messageFail, setMessageFail] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const [values, setValues] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  // useActionState handles the response and the loading (isPending) state
+  const [state, formAction, isPending] = useActionState(sendMail, null);
 
-  const { name, email, message } = values;
-
-  const handleChange = (e: any) => setValues({ ...values, [e.target.name]: e.target.value });
-
-  const handleSubmit = async (e: any) => {
-    setLoading(true);
-    e.preventDefault();
-    const resp = await sendMail({ emailContent: values });
-
-    resp?.accepted ? setMessageSuccess(true) : setMessageFail(true);
-    setLoading(false);
-
-    setValues({
-      name: '',
-      email: '',
-      message: ''
-    });
-  };
+  // Reset form when success is detected
+  useEffect(() => {
+    if (state?.success) {
+      formRef.current?.reset();
+    }
+  }, [state]);
 
   const inputC =
     'bg-transparent tracking-widest border-[1px] border-neutral-800 p-4 rounded-lg placeholder:text-neutral-400 text-sm focus-visible:outline-none';
 
   return (
-    <form onSubmit={handleSubmit} className="mt-14 grid gap-4">
+    <form ref={formRef} action={formAction} className="mt-14 grid gap-4">
       <div className="flex flex-col items-center gap-4 md:flex-row">
         <input
           required
           type="text"
-          name="name"
-          value={name}
-          onChange={handleChange}
+          name="name" // match the formData.get('name') in the action
           className={`${inputC} w-full`}
           placeholder="name"
         />
@@ -53,8 +34,6 @@ export default function ConnectForm() {
           required
           type="email"
           name="email"
-          value={email}
-          onChange={handleChange}
           className={`${inputC} w-full`}
           placeholder="email"
         />
@@ -62,27 +41,27 @@ export default function ConnectForm() {
       <textarea
         required
         name="message"
-        value={message}
-        onChange={handleChange}
         className={`${inputC} h-40`}
         placeholder="Hey hero! I know you are busy saving the community but..."
       />
       <button
-        className="rounded-2xl bg-off_white/80 p-4 font-bold uppercase tracking-widest text-black hover:bg-white"
+        disabled={isPending}
+        className="rounded-2xl bg-off_white/80 p-4 font-bold uppercase tracking-widest text-black hover:bg-white disabled:cursor-not-allowed"
         type="submit"
       >
-        {!loading ? 'Send' : <LoadingDots className="bg-black" />}
+        {!isPending ? 'Send' : <LoadingDots className="bg-black" />}
       </button>
-      {messageSuccess ? (
-        <div className="text-center text-xs text-htf_green brightness-125">
-          ✔ your message has been sent.
-        </div>
-      ) : messageFail ? (
+
+      {state?.success && (
+        <div className="text-center text-xs text-htf_green brightness-125">✔ {state.message}</div>
+      )}
+
+      {state?.success === false && (
         <div className="px-6 text-center text-xs brightness-125">
-          x something went wrong. please check all fields and try again. or contact me manually{' '}
+          x {state.message} or contact me manually{' '}
           <span className="font-bold text-off_white">connect@herotoall.io</span>
         </div>
-      ) : null}
+      )}
     </form>
   );
 }

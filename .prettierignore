@@ -1,3 +1,7 @@
+node_modules
 .vercel
 .next
-pnpm-lock.yaml
+dist
+build
+bun.lockb
+public

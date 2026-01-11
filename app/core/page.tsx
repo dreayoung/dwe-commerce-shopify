@@ -3,10 +3,10 @@ import { getCollection, getCollectionProducts } from 'lib/shopify';
 import Grid from 'components/grid';
 import Footer from 'components/layout/footer';
 import ProductGridItems from 'components/layout/product-grid-items';
+import CategoryFilter from 'components/layout/search/category-filter';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
-import CategoryFilter from 'components/layout/search/category-filter';
 
 export async function generateMetadata(): Promise<Metadata> {
   const collection = await getCollection('core');
@@ -25,12 +25,16 @@ const categoriesTags = ['ALL', 'CAPS', 'TOPS', 'BOTTOMS', 'CAPES'];
 export default async function CorePage({
   searchParams
 }: {
-  searchParams?: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
-  const { sort: searchValue } = searchParams as { [key: string]: string };
+  const resolvedSearchParams = await searchParams;
 
-  const products = await getCollectionProducts({ collection: 'core', tagQ: searchValue });
-  const collection = await getCollection('core');
+  const searchValue = resolvedSearchParams.sort;
+
+  const [products, collection] = await Promise.all([
+    getCollectionProducts({ collection: 'core', tagQ: searchValue }),
+    getCollection('core')
+  ]);
 
   return (
     <section>

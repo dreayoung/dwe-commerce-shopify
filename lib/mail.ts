@@ -1,11 +1,14 @@
 'use server';
 
 import nodemailer from 'nodemailer';
-import type { ConnectForm } from './shopify/types';
 
 const { EMAIL, EMAIL_PASS } = process.env;
 
-export async function sendMail({ emailContent }: { emailContent: ConnectForm }) {
+export async function sendMail(prevState: any, formData: FormData) {
+  const name = formData.get('name') as string;
+  const email = formData.get('email') as string;
+  const message = formData.get('message') as string;
+
   const transporter = nodemailer.createTransport({
     host: 'smtp-legacy.office365.com',
     port: 587,
@@ -21,25 +24,19 @@ export async function sendMail({ emailContent }: { emailContent: ConnectForm }) 
   });
 
   try {
-    const testResult = await transporter.verify();
-    console.log('test Result', testResult);
-  } catch (error) {
-    console.error({ error });
-    return;
-  }
-
-  try {
+    await transporter.verify();
     const sendResult = await transporter.sendMail({
       from: EMAIL,
       to: EMAIL,
       subject: `[New Message from Herotoall.io]`,
-      html: `<h1>You've got a message from ${emailContent.name}</h1>
-          <p><strong>Email:</strong> ${emailContent.email}</p>
-          <p><strong>Message:</strong> ${emailContent.message}</p>`
+      html: `<h1>You've got a message from ${name}</h1>
+             <p><strong>Email:</strong> ${email}</p>
+             <p><strong>Message:</strong> ${message}</p>`
     });
-    console.log('Send Result', sendResult);
-    return sendResult;
+
+    return { success: true, message: 'Your message has been sent.' };
   } catch (error) {
-    console.log('error', error);
+    console.error('Mail error:', error);
+    return { success: false, message: 'Something went wrong. Please try again.' };
   }
 }

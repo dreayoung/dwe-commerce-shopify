@@ -1,11 +1,10 @@
 import Footer from 'components/layout/footer';
 import Hero from 'components/layout/hero';
 import LockPage from 'components/layout/lockpage';
+import type { Metadata } from 'next';
 import { Suspense } from 'react';
 
-export const runtime = 'edge';
-
-export const metadata = {
+export const metadata: Metadata = {
   description: 'Hero To All',
   openGraph: {
     type: 'website'

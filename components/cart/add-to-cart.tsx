@@ -6,16 +6,17 @@ import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import { ProductVariant } from 'lib/shopify/types';
 import { useSearchParams } from 'next/navigation';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react'; // Use only React 19 hooks
 
 function SubmitButton({
   availableForSale,
-  selectedVariantId
+  selectedVariantId,
+  pending // Pass pending as a prop now
 }: {
   availableForSale: boolean;
   selectedVariantId: string | undefined;
+  pending: boolean;
 }) {
-  const { pending } = useFormStatus();
   const buttonClasses =
     'relative flex w-full items-center justify-center rounded-full border border-neutral-800 hover:border-neutral-100 p-4 uppercase tracking-widest font-bold';
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
@@ -45,14 +46,13 @@ function SubmitButton({
 
   return (
     <button
-      onClick={(e: React.FormEvent<HTMLButtonElement>) => {
-        if (pending) e.preventDefault();
-      }}
+      type="submit" // Ensure type is submit
       aria-label="Add to cart"
       aria-disabled={pending}
+      disabled={pending}
       className={clsx(buttonClasses, {
-        'hover:opacity-90': true,
-        disabledClasses: pending
+        'hover:opacity-90': !pending,
+        [disabledClasses]: pending
       })}
     >
       <div className="absolute left-0 ml-4">
@@ -70,8 +70,10 @@ export function AddToCart({
   variants: ProductVariant[];
   availableForSale: boolean;
 }) {
-  const [message, formAction] = useFormState(addItem, null);
+  // isPending is the 3rd value from useActionState
+  const [message, formAction, isPending] = useActionState(addItem, null);
   const searchParams = useSearchParams();
+
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
   const variant = variants.find((variant: ProductVariant) =>
     variant.selectedOptions.every(
@@ -83,7 +85,11 @@ export function AddToCart({
 
   return (
     <form action={actionWithVariant}>
-      <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
+      <SubmitButton
+        availableForSale={availableForSale}
+        selectedVariantId={selectedVariantId}
+        pending={isPending} // Pass it down
+      />
       <p aria-live="polite" className="sr-only" role="status">
         {message}
       </p>

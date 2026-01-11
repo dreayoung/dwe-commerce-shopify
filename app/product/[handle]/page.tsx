@@ -9,14 +9,13 @@ import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
 
-export const runtime = 'edge';
-
 export async function generateMetadata({
   params
 }: {
   params: { handle: string };
 }): Promise<Metadata> {
-  const product = await getProduct(params.handle);
+  const { handle } = await params;
+  const product = await getProduct(handle);
 
   if (!product) return notFound();
 
@@ -49,8 +48,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProductPage({ params }: { params: { handle: string } }) {
-  const product = await getProduct(params.handle);
+export default async function ProductPage({ params }: { params: Promise<{ handle: string }> }) {
+  const { handle } = await params;
+  const product = await getProduct(handle);
 
   if (!product) return notFound();
 
