@@ -51,7 +51,7 @@ export default async function CorePage({
           })}
         </div>
         {products.length === 0 ? (
-          <p className="py-3 pt-44 text-center font-hta text-xl lg:text-3xl">{`all out of ${searchValue}.`}</p>
+          <p className="flex min-h-screen items-center justify-center text-center font-hta text-xl lg:text-3xl">{`all out of ${searchValue}.`}</p>
         ) : (
           <Grid className="">
             <ProductGridItems collection="core" products={products} />

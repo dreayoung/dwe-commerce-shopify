@@ -3,8 +3,8 @@ import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import FooterLinks from './footer-links';
 import SubscribeSection from '../customer/footer-sub';
+import FooterLinks from './footer-links';
 
 const { COMPANY_NAME, SITE_NAME, LOCKED_SCREEN_PASSW } = process.env;
 
@@ -15,7 +15,7 @@ export default async function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="mx-auto grid min-h-screen content-end gap-4 pb-10 text-sm">
+    <footer className="mx-auto grid min-h-screen place-content-center gap-4 pb-10 text-sm">
       {!LOCKED_SCREEN_PASSW && (
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-neutral-100/10 p-6 text-sm min-[1320px]:px-0">
           <div className="font-hta text-xl font-semibold uppercase">Navigation</div>
@@ -43,7 +43,7 @@ export default async function Footer() {
         </div>
       </div>
       <div className="py-6">
-        <div className="flex w-full max-w-7xl flex-col items-center justify-end gap-1 px-4 text-xs">
+        <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-1 px-4 text-xs">
           <p>
             &copy; {currentYear} {copyrightName}. All rights reserved.
           </p>

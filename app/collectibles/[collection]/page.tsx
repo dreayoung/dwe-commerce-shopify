@@ -35,7 +35,9 @@ export default async function Page({ params }: { params: Promise<{ collection: s
   return (
     <section>
       {products.length === 0 ? (
-        <p className="px-20 pt-32 text-center font-hta text-3xl lg:text-6xl">{`No collectibles right now`}</p>
+        <div className="flex min-h-screen items-center justify-center">
+          <p className="px-20 pt-32 text-center font-hta text-3xl lg:text-6xl">{`No collectibles right now`}</p>
+        </div>
       ) : (
         <div className="mx-4">
           <div className="flex flex-col items-center justify-center space-y-2 py-12 text-center uppercase">

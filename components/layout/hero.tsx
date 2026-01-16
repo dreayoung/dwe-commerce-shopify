@@ -2,16 +2,11 @@ import Image from 'next/image';
 
 export default function Hero() {
   const images = [
-    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/1.jpg?v=1717608175',
-    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/2.jpg?v=1717608214',
-    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/3.jpg?v=1717608214',
-    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/4.jpg?v=1717608214',
-    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/5.jpg?v=1717608175',
-    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/6.jpg?v=1717608175',
-    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/7.jpg?v=1717608175',
-    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/8.jpg?v=1717608175',
-    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/9.jpg?v=1717608175',
-    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/10.jpg?v=1717608175'
+    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/1_c23f31f6-0a43-4e70-9d07-e191302025ad.jpg?v=1768606703',
+    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/2_2fec54f5-3af9-4ee3-8f2a-89a3b2a9730d.jpg?v=1768606703',
+    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/3_b6c07570-ef67-42a0-b051-7a269def882f.jpg?v=1768606704',
+    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/4_a58ca763-fcb5-47c1-b227-17687bf6f619.jpg?v=1768606704',
+    'https://cdn.shopify.com/s/files/1/0709/7597/9831/files/5_960f85a2-e451-42b9-aafd-ab28fd4ea851.jpg?v=1768606703'
   ];
 
   return (
@@ -30,7 +25,7 @@ export default function Hero() {
           {images.map((url, x) => {
             return (
               <div
-                className="relative box-content flex aspect-square h-[30rem] w-72 flex-none snap-center md:w-96"
+                className="relative box-content flex aspect-square h-[35rem] w-96 flex-none snap-center"
                 key={x}
               >
                 <Image
@@ -38,7 +33,7 @@ export default function Hero() {
                   fill
                   sizes="(min-width: 768px) 25vw, 100vw"
                   alt="szn pictures"
-                  className="rounded-2xl object-cover"
+                  className="rounded-2xl object-fill"
                   priority={x > 3 ? false : true}
                 />
               </div>
