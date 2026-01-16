@@ -44,7 +44,6 @@ export default async function Page({ params }: { params: Promise<{ collection: s
             <p className="text-center font-hta text-6xl uppercase text-white/10 lg:text-8xl">
               {collectionData?.description}
             </p>
-            {/* <h1 className="text-neutral-800">{collection?.title}</h1> */}
           </div>
           <Grid className="my-8">
             <ProductGridItems collection={`collectibles/${collection}`} products={products} />
