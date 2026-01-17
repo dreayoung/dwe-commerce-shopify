@@ -1,5 +1,7 @@
+import { Analytics } from '@vercel/analytics/next';
 import Navbar from 'components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
+import { Metadata } from 'next';
 import { Londrina_Solid } from 'next/font/google';
 import localFont from 'next/font/local';
 import { ReactNode } from 'react';
@@ -24,7 +26,7 @@ const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
 const twitterCreator = TWITTER_CREATOR ? ensureStartsWith(TWITTER_CREATOR, '@') : undefined;
 const twitterSite = TWITTER_SITE ? ensureStartsWith(TWITTER_SITE, 'https://') : undefined;
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     default: SITE_NAME!,
@@ -52,6 +54,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <MainLayout>
         {!envVariable && <Navbar />}
         <main>{children}</main>
+        <Analytics />
       </MainLayout>
     </html>
   );
