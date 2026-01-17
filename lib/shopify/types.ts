@@ -95,6 +95,7 @@ export type ProductVariant = {
   id: string;
   title: string;
   availableForSale: boolean;
+  totalInventory: number;
   selectedOptions: {
     name: string;
     value: string;
@@ -131,6 +132,7 @@ export type ShopifyProduct = {
   id: string;
   handle: string;
   availableForSale: boolean;
+  totalInventory: number;
   title: string;
   description: string;
   descriptionHtml: string;

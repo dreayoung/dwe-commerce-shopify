@@ -6,6 +6,7 @@ const productFragment = /* GraphQL */ `
     id
     handle
     availableForSale
+    totalInventory
     title
     description
     descriptionHtml
@@ -30,6 +31,7 @@ const productFragment = /* GraphQL */ `
           id
           title
           availableForSale
+          quantityAvailable
           selectedOptions {
             name
             value

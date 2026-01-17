@@ -10,24 +10,21 @@ export async function sendMail(prevState: any, formData: FormData) {
   const message = formData.get('message') as string;
 
   const transporter = nodemailer.createTransport({
-    host: 'smtp-legacy.office365.com',
-    port: 587,
-    secure: false,
-    tls: {
-      ciphers: 'SSLv3',
-      rejectUnauthorized: false
-    },
+    service: 'gmail',
     auth: {
       user: EMAIL,
+      // This MUST be a 16-character App Password, not your login password
       pass: EMAIL_PASS
     }
   });
 
   try {
-    await transporter.verify();
-    const sendResult = await transporter.sendMail({
-      from: EMAIL,
+    // Gmail is stricter with 'from' addresses. It will often default to your email
+    // even if you set a different 'from' in the sendMail object.
+    await transporter.sendMail({
+      from: `"${name}" <${EMAIL}>`,
       to: EMAIL,
+      replyTo: email, // This allows you to click "Reply" in your inbox to email the user back
       subject: `[New Message from Herotoall.io]`,
       html: `<h1>You've got a message from ${name}</h1>
              <p><strong>Email:</strong> ${email}</p>
