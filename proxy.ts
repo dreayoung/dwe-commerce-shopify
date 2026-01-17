@@ -5,8 +5,6 @@ import { NextResponse } from 'next/server';
 export default async function proxy(request: NextRequest) {
   const { LOCKED_SCREEN_PASSW } = process.env;
 
-  // In Next.js 16, environment variables are accessed the same way,
-  // but the proxy runs in a more optimized Edge-like environment.
   if (LOCKED_SCREEN_PASSW) {
     // Standardizing logs for the new Next.js 16 telemetry
     return NextResponse.redirect(new URL('/', request.url));
