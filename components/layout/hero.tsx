@@ -10,35 +10,49 @@ export default function Hero() {
   ];
 
   return (
-    <div className="flex flex-col space-y-20 py-24">
-      <div className="relative flex h-40 items-center justify-center overflow-hidden text-center font-hta">
-        <h1 className="relative z-20">Are you who you want to be?</h1>
-        <span className="absolute left-1/2 top-auto hidden -translate-x-1/2 transform whitespace-nowrap text-center uppercase text-neutral-800/40 md:block md:text-9xl lg:text-[10rem]">
+    <div className="flex flex-col space-y-12 py-16 md:space-y-20 md:py-24">
+      {/* Title Section (Restored & Responsive) */}
+      <div className="relative flex h-32 items-center justify-center overflow-hidden text-center font-hta md:h-40">
+        <h1 className="relative z-20 text-lg uppercase tracking-widest md:text-2xl">
+          Are you who you want to be?
+        </h1>
+        <span className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform whitespace-nowrap text-center uppercase text-neutral-800/40 md:block md:text-9xl lg:text-[10rem]">
           Herotoall.io
         </span>
-        <span className="words absolute top-auto block text-center text-[12rem] uppercase text-neutral-800/40 md:hidden">
+        <span className="words pointer-events-none absolute top-1/2 block -translate-y-1/2 text-center text-8xl uppercase text-neutral-800/40 md:hidden">
           Herotoall.io
         </span>
       </div>
-      <div className="px-4 md:px-20">
-        <div className="carousel mx-auto flex w-full space-x-4 rounded-2xl bg-neutral-800/25 p-4">
+
+      {/* Carousel Section */}
+      <div className="w-full">
+        <div
+          className="carousel no-scrollbar flex w-full snap-x snap-mandatory gap-4 overflow-x-auto px-6 md:gap-8 md:px-20"
+          style={{ scrollPaddingLeft: '1.5rem' }}
+        >
           {images.map((url, x) => {
             return (
               <div
-                className="relative box-content flex aspect-square h-[35rem] w-96 flex-none snap-center"
                 key={x}
+                /* MOBILE: 80% width for the peek effect.
+                   DESKTOP: max-width of 400px and max-height to keep it within view.
+                */
+                className="relative aspect-[4/5] w-[80vw] flex-none snap-start 
+                           md:max-h-[500px] md:w-[400px] lg:max-h-[560px] lg:w-[450px]"
               >
                 <Image
                   src={url}
+                  alt={`szn picture ${x + 1}`}
                   fill
-                  sizes="(min-width: 768px) 25vw, 100vw"
-                  alt="szn pictures"
-                  className="rounded-2xl object-fill"
-                  priority={x > 3 ? false : true}
+                  sizes="(max-width: 768px) 80vw, 450px"
+                  className="rounded-2xl object-cover shadow-lg transition-transform duration-300"
+                  priority={x < 2}
                 />
               </div>
             );
           })}
+          {/* Spacer for the end of scroll */}
+          <div className="w-6 flex-none md:w-20" />
         </div>
       </div>
     </div>
