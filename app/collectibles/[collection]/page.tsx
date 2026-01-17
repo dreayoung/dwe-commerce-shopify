@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: Promise<{ collection: s
 
   if (!products) return notFound();
 
-  console.log('Collection Products:', products);
+  // console.log('Collection Products:', products);
 
   return (
     <section>

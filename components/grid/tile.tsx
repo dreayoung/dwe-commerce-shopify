@@ -11,7 +11,7 @@ export function GridTileImage({
 } & React.ComponentProps<typeof Image>) {
   return (
     <div
-      className={clsx('group relative', {
+      className={clsx('group relative aspect-[4/5]', {
         'border-2 border-black': active,
         'border-neutral-200': !active
       })}
@@ -19,7 +19,7 @@ export function GridTileImage({
       {props.src ? (
         // eslint-disable-next-line jsx-a11y/alt-text -- `alt` is inherited from `props`, which is being enforced with TypeScript
         <Image
-          className={clsx('h-full w-full rounded-lg object-cover', {
+          className={clsx('rounded-lg object-cover', {
             'transition duration-300 ease-in-out group-hover:scale-105': isInteractive
           })}
           {...props}
