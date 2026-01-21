@@ -25,7 +25,7 @@ export async function sendMail(prevState: any, formData: FormData) {
       from: `"${name}" <${EMAIL}>`,
       to: EMAIL,
       replyTo: email, // This allows you to click "Reply" in your inbox to email the user back
-      subject: `[New Message from Herotoall.io]`,
+      subject: `[New Message from aherotoall@gmail.com] ${name}`,
       html: `<h1>You've got a message from ${name}</h1>
              <p><strong>Email:</strong> ${email}</p>
              <p><strong>Message:</strong> ${message}</p>`

@@ -15,9 +15,9 @@ export default async function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="mx-auto grid min-h-screen place-content-center gap-4 pb-10 text-sm">
+    <footer className="relative mx-auto flex flex-col items-center justify-center gap-4 text-sm">
       {!LOCKED_SCREEN_PASSW && (
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-neutral-100/10 p-6 text-sm min-[1320px]:px-0">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 border-t border-neutral-100/10 p-6 pt-10 text-sm min-[1320px]:px-0">
           <div className="font-hta text-xl font-semibold uppercase">Navigation</div>
           <Suspense
             fallback={
@@ -35,14 +35,15 @@ export default async function Footer() {
           </Suspense>
         </div>
       )}
-      <div className="p-6 md:px-20">
-        <div className="mx-auto flex w-full max-w-2xl flex-col items-center justify-center gap-4 rounded-lg border border-neutral-100/10 bg-transparent/20 p-12 shadow-sm">
+      <div className="md:px-20">
+        <div className="mx-auto flex w-[90%] max-w-2xl flex-col items-center justify-center gap-4 rounded-lg border border-neutral-100/10 bg-transparent/20 p-12 shadow-sm">
           <LogoSquare size="sm" />
           <SubscribeSection />
           <FooterLinks />
         </div>
       </div>
-      <div className="py-6">
+      <div className="mt-8 h-5 w-full border-t border-neutral-100/10" />
+      <div className="pb-8">
         <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-1 px-4 text-xs">
           <p>
             &copy; {currentYear} {copyrightName}. All rights reserved.
