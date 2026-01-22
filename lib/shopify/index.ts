@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import { HIDDEN_PRODUCT_TAG, SHOPIFY_GRAPHQL_API_ENDPOINT, TAGS } from 'lib/constants';
 import { isShopifyError } from 'lib/type-guards';
 import { ensureStartsWith } from 'lib/utils';
@@ -448,15 +449,18 @@ export async function revalidate(req: NextRequest): Promise<NextResponse> {
   // Await headers for Next.js 16 compatibility
   const headerList = await headers();
   const topic = headerList.get('x-shopify-topic') || 'unknown';
+  const hmac = headerList.get('x-shopify-hmac-sha256');
 
-  // Await searchParams from the URL
-  const { searchParams } = new URL(req.url);
-  const secret = searchParams.get('secret');
+  // 1. Verify Shopify HMAC signature
+  const body = await req.text();
+  const hash = crypto
+    .createHmac('sha256', process.env.SHOPIFY_WEBHOOK_SECRET!)
+    .update(body, 'utf8')
+    .digest('base64');
 
-  // 1. Security Check
-  if (!secret || secret !== process.env.SHOPIFY_REVALIDATION_SECRET) {
-    console.error('Invalid revalidation secret.');
-    return NextResponse.json({ status: 401, message: 'Invalid secret' });
+  if (hash !== hmac) {
+    console.error('Invalid webhook signature');
+    return NextResponse.json({ status: 401, message: 'Unauthorized' });
   }
 
   // 2. Topic Check
