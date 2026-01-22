@@ -9,6 +9,7 @@ export default function ConnectForm() {
 
   // useActionState handles the response and the loading (isPending) state
   const [state, formAction, isPending] = useActionState(sendMail, null);
+  const EMAIL_ADDRESS = process.env.EMAIL;
 
   // Reset form when success is detected
   useEffect(() => {
@@ -59,7 +60,7 @@ export default function ConnectForm() {
       {state?.success === false && (
         <div className="px-6 text-center text-xs brightness-125">
           x {state.message} or contact me manually{' '}
-          <span className="font-bold text-off_white">connect@herotoall.io</span>
+          <span className="font-bold text-off_white">aherotoall@gmail.com</span>
         </div>
       )}
     </form>
